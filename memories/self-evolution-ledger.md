@@ -1,0 +1,80 @@
+# Self-Evolution Source Ledger
+
+User request: keep a dedicated, exportable ledger of every URL, project, tool, skill list, and requirement the user provides for Codex/Hermes self-evolution. This should include both prior items already discussed and future items. The ledger should preserve why the user provided the item, what should be learned from it, whether it was installed/read/adapted, and where the resulting skill or rule lives.
+
+Future-use rule: when the user gives material for "进化", "学习", "全局生效", "让你更聪明", "自我改进", "skills", "CLAUDE.md/AGENTS.md", "插件/工具安装", or "导出给其他AI", add or consolidate it into this self-evolution ledger rather than leaving it only in chat history. Do not store cookies, passwords, private tokens, or session secrets.
+
+Recommended ledger fields:
+- date
+- source_url_or_project
+- user_goal
+- extraction_status
+- evaluation_conclusion
+- adopted_strategy
+- adopted_result
+- output_location
+- follow_up_needed
+
+Evaluation rule: do not absorb sources wholesale. For every evolution source, record a concise judgment and strategy: what is useful, what is rejected or deferred, why, and what concrete Codex skill/rule/action should result.
+
+## Prior self-evolution materials captured from this conversation
+
+| Date | Source or project | User goal | Status / adopted result | Output location |
+|---|---|---|---|---|
+| 2026-05-11 to 2026-05-18 | `https://github.com/forrestchang/andrej-karpathy-skills` | Evaluate whether Karpathy-style rules can make Codex better; adapt useful principles rather than copy. | Adapted first-batch engineering discipline: manage assumptions, smallest sufficient change, surgical edits, verifiable outcomes. | `C:\Users\skzjc\.codex\skills\absorb-lessons\references\principles.md` |
+| 2026-05-18 | `hermes-self-evolution`, `self-improving-agent`, `proactive-agent`, `skill-creator`, and related skill list supplied by user | Build a better self-evolution/global experience absorption protocol and reserve a future intake flow. | Created/used global absorption workflow around adaptation, dedupe, Codex localization, stable-rule separation, validation. | `C:\Users\skzjc\.codex\skills\absorb-lessons\SKILL.md` and `references\principles.md` |
+| 2026-05-18 | `agent-reach`, `web-access` | Install/use web reach skills that can read public web and hostile pages without relying only on static fetch. | Installed/available as global skills; WeChat article workflow verified through Camoufox debug HTML fallback. | `C:\Users\skzjc\.codex\skills\web-access\SKILL.md`; `C:\Users\skzjc\.codex\skills\agent-reach\SKILL.md` |
+| 2026-05-18 | `https://mp.weixin.qq.com/s/_OKzl78C9LKfDweIgXY05Q` | Use as reference for `pm-prd` skill. | User-requested reference for PRD/product requirement generation; preserve for future PM skill refinement/export. | `C:\Users\skzjc\.codex\skills\pm-prd\SKILL.md` if refined; verify before relying on content. |
+| 2026-05-18 | `https://mp.weixin.qq.com/s/AA2NHww4jUBuAfi10EYICw` | Read article and use it to fill useful CLAUDE.md-like documents/persona/global operating guidance. | Mentioned as required source; if not yet fully consolidated, revisit with WeChat article workflow and adapt useful guidance. | Pending/refine into `absorb-lessons` or global `AGENTS.md` rules as appropriate. |
+| 2026-05-18 | `https://github.com/browser-use/browser-use` and "computer use" discussion | Understand why plugin-market install failed and what desktop/browser control Codex actually has. | Clarified distinction between installed/discoverable/callable tools; adopted tool-reality principle. | `C:\Users\skzjc\.codex\skills\absorb-lessons\references\principles.md` |
+| 2026-05-18 | Chrome CDP endpoint `http://127.0.0.1:9222/json/version` | Make Codex use the user's Chrome login state for WeChat and other protected pages. | Adopted environment verification ladder: check raw endpoint first, then proxy/tool wrapper. | `C:\Users\skzjc\.codex\skills\web-access\SKILL.md`; `absorb-lessons\references\principles.md` |
+| 2026-05-18 | `https://mp.weixin.qq.com/s/6FZcXXewdwC5NBreGWAphA?scene=334` | Investigate whether this enables controlling arbitrary desktop software such as Excel, Word, Feishu, WeChat. | Preserve as user-provided computer-control source; evaluate capability, safety boundary, and install route before claiming control. | Pending capability review; likely related to `desktop-control` and computer-use workflow. |
+| 2026-05-18 | `caveman` project / skill set | Determine whether caveman-style compressed communication can save tokens. | Caveman skills installed/available; use for explicit compressed mode or token-saving summaries, not as default for all communication unless requested. | `C:\Users\skzjc\.codex\skills\caveman*` |
+| 2026-05-18 | `https://github.com/nexu-io/open-design` | Improve Codex's ability to create beautiful images, design drafts, and design systems. | Open Design adapted skills installed/available for brand/design/UI/image enhancement workflows. | `C:\Users\skzjc\.codex\skills\open-design-*` |
+| 2026-05-18 | `https://mp.weixin.qq.com/s/-otRArJp28nPaPhHQQ1_4Q` | Learn Mnilax's expanded CLAUDE.md rules and absorb useful principles. | Read through agent-reach Camoufox; adapted failure-mode rules: model-vs-code boundary, conflict surfacing, ownership reading, intentful tests, checkpoints, fail-loud, real-failure rule hygiene. | `C:\Users\skzjc\.codex\skills\absorb-lessons\references\principles.md` |
+| 2026-05-18 | `https://x.com/Mnilax/status/2053116311132155938` | Original source cited by the WeChat article about expanded CLAUDE.md rules. | Preserve as primary source to verify if needed; access may require web/X tooling. | Pending direct verification if exact original wording is needed. |
+| 2026-05-18 | Current request: dedicated storage for all evolution URLs/projects/needs | Make future and past self-evolution material easy to export to other AI systems. | This ledger created as the dedicated storage point for self-evolution source tracking. | `C:\Users\skzjc\.codex\memories\extensions\ad_hoc\notes\2026-05-18T15-12-54-self-evolution-ledger.md` |
+| 2026-05-18 | `https://github.com/addyosmani/agent-skills` | Evaluate a recent high-ranking GitHub agent-skills project for improving Codex skills and engineering workflows. | Preliminary assessment: useful as a reference catalog for production-grade engineering skill design, but should be selectively audited and adapted rather than bulk-installed. | Candidate reference for `absorb-lessons`, engineering workflow skills, and future skill quality checklist. |
+| 2026-05-18 | `https://github.com/lsdefine/GenericAgent` and `https://arxiv.org/abs/2604.17091` | Evaluate a recent high-ranking self-evolving agent project for Codex/Hermes memory, computer control, and self-evolution design. | Preliminary assessment: highly relevant architecture reference for layered memory, compact tool surface, checkpoints, and skill crystallization; risky to install directly until security and desktop-control boundaries are reviewed. | Candidate reference for `absorb-lessons`, `desktop-control`, and self-evolution ledger/memory design. |
+| 2026-05-18 | `https://mp.weixin.qq.com/s/QvvriYIJrulyLMb0xHfWvQ` and `https://github.com/jackwener/OpenCLI` | Evaluate OpenCLI as a token-saving and tool-access layer that turns websites, browser sessions, Electron apps, and local tools into deterministic CLI commands. | Article read through Camoufox; GitHub checked. Preliminary assessment: very relevant to our direction because it matches "deterministic tools before model reasoning", browser login reuse, adapter creation, and desktop/Electron control. | Candidate for an isolated proof-of-concept and future `web-access`/`desktop-control` integration notes; do not install globally until permission and command-safety boundaries are reviewed. |
+| 2026-05-18 | Core user need: read dozens of WeChat work-group message histories to understand background/context and help draft group replies. | Build a local, read-only WeChat work-context layer for Codex so replies can be grounded in real chat history instead of isolated prompts. | High-priority product need. Requires explicit read-only scope, group allowlist, local-only indexing, source citations, and no automatic sending. | Candidate for a dedicated `wechat-work-context` skill/tool workflow; evaluate `OpenCLI`/`wx-cli`, desktop UI automation, or official export paths in an isolated POC. |
+| 2026-05-18 | `https://mp.weixin.qq.com/s/xp2pAYjJ2VCItz84Ltrpew` and `https://github.com/browser-use/browser-harness` | Evaluate whether browser-harness is better than the current Chrome plugin/CDP path for logged-in browser tasks. | Article read through Camoufox; browser-harness installed to `C:\Users\skzjc\Developer\browser-harness`, registered as global Codex skill, and validated. Runtime test failed because current Chrome has no active CDP authorization/DevToolsActivePort. | Use browser-harness as preferred visual browser-control layer once Chrome remote debugging is authorized; keep app-specific CLI/local data tools first for WeChat/Feishu/GitHub where possible. |
+| 2026-05-18 | `https://mp.weixin.qq.com/s/FNQXQ-a5xSMd8p6BQu-dIA`, `https://github.com/agi-bar/neuDrive`, and `https://www.neudrive.ai` | Evaluate neuDrive as an Agent "OneDrive" for syncing skills, memory, files, identity, preferences, and project context across Claude, Codex, Cursor, ChatGPT, Gemini, Feishu, and MCP clients. | Article read through Camoufox; GitHub checked. Preliminary assessment: strongly aligned with the user's export/cross-AI portability need, but too sensitive for blind hosted upload because it may include memory, skills, secrets, trust rules, and private project context. | Prefer local/self-hosted or private GitHub backup first; export a curated non-secret bundle before any hosted sync. |
+
+## Concise evaluation and adoption strategy
+
+| Source | Conclusion | Strategy | Do not absorb because |
+|---|---|---|---|
+| `addyosmani/agent-skills` | High-value reference for production engineering skill quality. | Audit selectively; extract quality criteria and 5-10 directly useful workflows into Codex-native skills. | Bulk install would add noisy triggers, context bloat, and tool assumptions that may not match this environment. |
+| `lsdefine/GenericAgent` | High-value architecture reference for self-evolution, layered memory, compact tools, and desktop control. | Study architecture first; adapt memory layers, checkpointing, and skill crystallization into our own skills/rules before any install. | Direct install is high-risk: broad computer control, dynamic package/script creation, external installer domain, and unclear safety boundaries. |
+| `jackwener/OpenCLI` | High-value practical tool layer for lowering token cost and turning repeat web/app actions into deterministic commands. | Run only a small POC first: install/doctor in isolated scope, test read-only commands, then adapt proven patterns into `web-access` and `desktop-control`. | It exposes powerful account/session and desktop-app actions, includes social posting/like/follow-style commands, and may auto-install/passthrough tools; global install without guardrails risks privacy, account actions, and command sprawl. |
+| WeChat work-group context | This is a core capability goal, not just a tool curiosity. | Design as read-only retrieval plus draft assistance: allowlisted groups, time/window filters, searchable local index, message citations, manual send only. | Full ingestion without boundaries would expose private data, mix unrelated groups, risk hallucinated context, and create account-action risk if reply sending is automated. |
+| WeChat work-context POC scope | Start with only 2 work groups. Each group must be isolated. | POC should prove: list target groups, read recent/history messages for each group separately, search within one selected group, draft reply from that group's context only, and never auto-send. | Testing dozens of groups at once would hide errors, increase privacy blast radius, and make cross-group context leakage hard to detect. |
+| `browser-use/browser-harness` | Better than a browser plugin for agent-side flexibility: thin CDP harness, screenshot/coordinate-first actions, editable helpers, domain skills, and no Chrome extension dependency. | Keep installed. Use only after Chrome CDP is actually authorized; for logged-in web tasks prefer existing Chrome plus harness, for non-login tasks use isolated profile, and for structured services prefer CLI/local DB tools before browser control. | It still depends on Chrome remote debugging permission and Chrome 144+ attach popups; it does not solve missing login state if we launch an isolated profile, and self-editing helpers/domain skills need review before becoming trusted global behavior. |
+| `agi-bar/neuDrive` | High-value portability layer for the exact "export to other AI / sync skills and memories" need. | Do not upload everything. First build a curated local export bundle from the self-evolution ledger and selected skills, then test self-hosted/private GitHub backup or local mode; hosted neuDrive can be considered only after redaction and trust-scope review. | Wholesale hosted sync could leak private memory, work chat context, secrets, API keys, account rules, and project-specific data; cross-agent access also needs scoped trust controls to avoid one tool reading everything. |
+
+## Export note
+
+Export goal: the user should not have to re-train another AI from scratch. Export portable working habits, durable preferences, skills, and evolution decisions; do not export business data, private chat contents, account state, secrets, customer/payment records, or large project files.
+
+When exporting to another AI, include this ledger plus the referenced skill files under:
+- `C:\Users\skzjc\.codex\skills\absorb-lessons\`
+- `C:\Users\skzjc\.codex\skills\web-access\`
+- `C:\Users\skzjc\.codex\skills\agent-reach\`
+- `C:\Users\skzjc\.codex\skills\wechat-pay-product-design\`
+- any `open-design-*`, `caveman*`, `pm-prd`, and `desktop-control` skills relevant to the target AI's tool surface.
+
+Recommended export bundle:
+- self-evolution source ledger and concise adoption strategies
+- global operating preferences and durable collaboration style
+- reusable skills and their references/scripts when they do not contain secrets
+- skill quality rules, browser/web access lessons, WeChat article access workflow, and design/product skills
+- tool capability notes that explain what was tested and what failed
+
+Exclude from the generic export bundle:
+- WeChat work-group message bodies, search results, local indexes, and group allowlists
+- account login state, cookies, tokens, API keys, OAuth grants, and local credential files
+- customer records, payment/order/refund data, complaint records, and merchant/business-private details
+- large project files, generated artifacts, local database dumps, screenshots with private data, and raw rollout logs unless redacted
+
+If a target AI needs sensitive context for a specific task, create a task-local, minimal, redacted packet instead of adding it to the general export bundle.
