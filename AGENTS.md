@@ -54,6 +54,23 @@ For design tasks, use the normal frontend rules first. Use one relevant `open-de
 
 Use `caveman*` skills only when the user asks for compressed mode, token-saving summaries, commit/review compression, or memory compression. Do not make compressed speech the default conversation style.
 
-For self-evolution, use `absorb-lessons` as the default process. New external ideas go through: source logged, overlap checked, adopt/reject decision written, focused skill/rule change staged, validation run, private export pushed. SkillClaw-style automatic evolution is a workflow reference, not a default traffic proxy.
+For self-evolution, use `absorb-lessons` as the default process. New external ideas go through: source logged, overlap checked, adopt/reject decision written, focused skill/rule change staged, and validation run. SkillClaw-style automatic evolution is a workflow reference, not a default traffic proxy.
+
+Do not push the private evolution export on every small update. Accumulate local changes and push only when the user asks, when a stable batch is ready, or roughly weekly by default. Urgent safety or portability updates may be pushed sooner, but say why.
 
 Do not claim a new skill or rule improved performance until at least one realistic validation has been run or the skipped validation is explicitly reported.
+
+When a new project, plugin, skill, or method overlaps with an existing capability, proactively propose a comparison test instead of only giving an opinion. The proposal should name the variants, one realistic task, success criteria, cost/time, and the recommended default. If the test is low-cost and safe, run it; if it requires install, account access, spending, or sensitive data, ask before running. Treat untested comparisons as candidates, not adopted improvements.
+
+## Multi-Agent Context Protocol
+Use subagents only when the user explicitly asks for multi-agent work or when the active environment rules allow it. Do not describe ordinary tool parallelism as an agent cluster.
+
+Before delegating, the main agent must create a small task packet, not forward the whole conversation. The packet includes: task goal, success criteria, allowed files/sources, relevant facts, constraints, output format, and what must not be touched.
+
+Share only context that the subtask needs. Keep private or unrelated material isolated: secrets, cookies, tokens, account state, customer/payment data, WeChat group allowlists, unrelated group messages, raw memory logs, and unrelated project files.
+
+For information-seeking subagents, require evidence-bearing outputs: source paths/URLs, line references or extracted facts, uncertainty, and recommendation. For code-changing subagents, assign disjoint write scopes and require changed file paths, verification run, and residual risks.
+
+The main agent owns integration. It must compare subagent outputs against the original goal, resolve conflicts, discard unsupported claims, and produce one final answer or patch. Subagent context is disposable unless the user asks to preserve a distilled result.
+
+Use multi-agent work only when it reduces real risk or latency. Do not spawn agents for small tasks, tightly coupled work, or when context packaging would cost more than doing the work directly.

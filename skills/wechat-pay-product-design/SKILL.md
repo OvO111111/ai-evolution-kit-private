@@ -15,6 +15,18 @@ Use this skill when the user asks about WeChat Pay product selection, H5 payment
 4. Treat delegated deduction as a separate gated product, not a feature automatically included with H5 payment.
 5. For plans and reports, present business milestones first and keep engineering detail underneath as editable detail.
 
+## Relationship To Official WeChat Pay Skills
+
+This skill is the user's product/operations layer. It answers "which payment product, what permission path, what qualification risk, what rollout plan, and how to report status."
+
+Official WeChat Pay Skills are the implementation/reference layer. Use or install the official upstream when the task needs runnable integration code, request signing, certificate loading, callback verification, API field details, launch checklist scanning, error-code troubleshooting, or product-specific API flows.
+
+Routing:
+
+- Product selection, merchant application path, feasibility, PRD, operations plan, Feishu report: use this skill first.
+- API integration, code examples, callback/signature/certificate details, online quality checks, troubleshooting request/response errors: use official WeChat Pay Skills first, then summarize with this skill if business decision or reporting is needed.
+- Mixed task: use this skill to choose the product path, then hand implementation details to the official skill or official docs.
+
 ## Product Mapping
 
 | User scenario | WeChat Pay product |
@@ -77,5 +89,6 @@ Default known context until user updates it:
 
 ## References
 
+- Read `references/official-wechatpay-skills.md` for the upstream official Skills boundary and install/source pointers.
 - Read `references/wechat-pay-application-notes.md` for official-doc-backed payment product details.
 - Read `references/operations-reporting-pattern.md` for Feishu/product-management presentation rules.
