@@ -1,7 +1,7 @@
 ---
 page_type: topic
 created_at: "2026-05-18"
-updated_at: "2026-05-18"
+updated_at: "2026-05-19"
 sensitivity: personal
 source_ids: ["skill_routing_audit", "memory_registry"]
 confidence: high
@@ -13,6 +13,15 @@ status: active
 ## Default Rule
 
 Use the smallest matching tool set. Do not stack overlapping skills just because they exist.
+
+Before any non-trivial task, run a skill gate:
+
+- classify the task family
+- name the selected skill(s), or state why no skill applies
+- identify required source inspection before drafting or editing
+- stop if a mandatory skill has not been opened or applied
+
+For tasks involving existing artifacts, source inspection is part of the gate. It is not optional follow-up work.
 
 ## Current Routing Order
 
@@ -29,6 +38,16 @@ Use the smallest matching tool set. Do not stack overlapping skills just because
 - `absorb-lessons` vs self-improving-agent / SkillClaw style ideas
 - `caveman*` vs normal communication
 - project-specific tools vs global skills
+
+## Mandatory Trigger Families
+
+- PRD, product plan, solution plan, backend/admin prototype, grey-release decision system, or proposal + prototype tasks: use `pm-prd` and inspect referenced PRDs, HTML mockups, samples, interface docs, workflows, and confirmed business boundaries before drafting.
+- Backend/admin UI, dashboards, internal tools, CRMs, approval systems, payment/customer-data consoles, or admin prototypes: use `open-design-design-systems`, pick the closest reference system first, and do not style from generic adjectives.
+- Data analysis reports, Excel/CSV analysis, KPI/trend/comparison/cohort/root-cause reports, visualized HTML reports, Word/PPT analysis reports, or "analysis is not professional enough" feedback: use `data-analysis-report` first, then supporting file-format skills such as `xlsx`, `docx`, `pptx`, or `ocr-and-documents`.
+- Self-evolution, external lessons, skill/rule updates, or "make Codex smarter" tasks: use `absorb-lessons`, log source + decision + validation.
+- WeChat public article or difficult public/social web sources: route through `web-access`; use `agent-reach` or browser fallback when static fetch fails.
+- WeChat work-group context: use `wechat-work-context`, keep groups isolated, read-only, and cite source messages.
+- Feishu/Lark tasks: use the relevant Lark skill and edit the real Feishu surface, not a detached substitute.
 
 ## Validation Rule
 

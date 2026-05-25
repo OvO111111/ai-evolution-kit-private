@@ -17,7 +17,15 @@ This file maps likely Chinese user queries to canonical vault pages.
 | 多Agent, agent集群, 上下文隔离, 上下文共享, 子Agent | `../wiki/decisions/multi-agent-context-protocol.md` |
 | 导出, 备份, 迁移到其他AI, GitHub备份, 敏感信息 | `../wiki/decisions/export-boundaries.md` |
 | 做过什么项目, 项目在哪查, 历史项目, 项目索引 | `../wiki/projects/project-registry.md` |
+| PRD, 产品方案, 后台原型, 灰度决策, mockup, 投诉样本, 接口文档 | `../wiki/decisions/pm-prd-routing-guard.md` |
 
 ## Retrieval Rule
+
+Additional alias:
+
+| Query terms | Canonical page |
+|---|---|
+| 后台UI, 后台界面, 管理后台, admin UI, dashboard, CRM, 内部工具, 设计很丑, open-design | `../wiki/decisions/admin-ui-design-standard.md` |
+| 数据分析报告, Excel分析, 数据报告, KPI分析, 趋势分析, 对比分析, 根因分析, cohort, 报告不专业, SenseNova-Skills | `../wiki/decisions/data-analysis-report-standard.md` |
 
 If a Chinese query does not hit FTS because of tokenizer limits, search this alias index first, then open the canonical page.

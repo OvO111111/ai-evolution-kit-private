@@ -1,0 +1,27 @@
+{"case_id":"self_evolution_article","task_family":"self-evolution","prompt":"这个项目/文章能不能让你进化，学习后写入全局规则","expected_skills":["absorb-lessons"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"prd_with_existing_refs","task_family":"prd","prompt":"根据这个项目已有 PRD、mockup HTML、投诉样本和接口文档，重新写一版可评审 PRD","expected_skills":["pm-prd"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"solution_plan_before_code","task_family":"solution-plan","prompt":"先不要写代码，先给我一个产品方案和实施路径","expected_skills":["pm-prd"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"wechat_article_read","task_family":"web-article","prompt":"读取这个微信公众号文章并总结可吸收的经验","expected_skills":["agent-reach","web-access"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"browser_login_state","task_family":"browser","prompt":"用我的 Chrome 登录态打开这个需要登录的页面并提取内容","expected_skills":["browser","web-access"],"allowed_tiers":["active"],"must_inspect_sources":false}
+{"case_id":"desktop_excel_operation","task_family":"desktop","prompt":"帮我操作桌面 Excel，把这个表筛选并另存","expected_skills":["desktop-control"],"allowed_tiers":["active"],"must_inspect_sources":false}
+{"case_id":"wechat_group_context","task_family":"wechat-work-context","prompt":"查一下这两个微信群最近关于项目的问题，帮我起草回复","expected_skills":["wechat-work-context"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"wechat_pay_product","task_family":"payment-product","prompt":"这个场景应该申请微信 H5 支付、JSAPI 还是委托代扣？","expected_skills":["wechat-pay-product-design"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"feishu_doc_edit","task_family":"feishu-doc","prompt":"直接编辑我的飞书文档，把周报改成一屏四周视图","expected_skills":["lark-doc","lark-wiki"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"feishu_base_edit","task_family":"feishu-base","prompt":"修改飞书多维表格字段和视图，把状态分组加上","expected_skills":["lark-base"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"lark_message_search","task_family":"lark-im","prompt":"搜索飞书群消息，找出上周谁提到过这个问题","expected_skills":["lark-im"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"meeting_minutes","task_family":"meeting","prompt":"整理昨天飞书妙记里的会议纪要和待办","expected_skills":["lark-minutes"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"docx_edit","task_family":"docx","prompt":"修改这个 Word 文档，保留样式和批注","expected_skills":["docx"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"xlsx_analysis","task_family":"xlsx","prompt":"分析这个 Excel，检查公式错误并生成汇总表","expected_skills":["xlsx"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"pptx_create","task_family":"pptx","prompt":"做一份 PowerPoint 汇报，并检查排版","expected_skills":["pptx"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"pdf_extract","task_family":"pdf","prompt":"读取这个 PDF，提取表格并确认页面布局","expected_skills":["pdf"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"ocr_scan","task_family":"ocr","prompt":"从这张扫描图里 OCR 出文字并整理成文档","expected_skills":["ocr-and-documents"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"video_frames","task_family":"video","prompt":"从这个视频里截取关键帧用于检查画面","expected_skills":["video-frames"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"frontend_design","task_family":"design","prompt":"把这个页面设计得更高级，给出视觉方案并实现","expected_skills":["open-design-design-systems","open-design-frontend-design"],"allowed_tiers":["candidate","active"],"must_inspect_sources":true}
+{"case_id":"design_review","task_family":"design-review","prompt":"审查这个页面为什么丑，直接给我改到能上线","expected_skills":["open-design-design-review"],"allowed_tiers":["candidate","active"],"must_inspect_sources":true}
+{"case_id":"image_generation","task_family":"image","prompt":"生成一张产品宣传图","expected_skills":["imagegen"],"allowed_tiers":["reference","active"],"must_inspect_sources":false}
+{"case_id":"openai_api_current_docs","task_family":"openai-docs","prompt":"现在 OpenAI API 这个功能怎么用，查最新官方文档","expected_skills":["openai-docs"],"allowed_tiers":["reference","active"],"must_inspect_sources":true}
+{"case_id":"compressed_mode","task_family":"compression","prompt":"用 caveman 模式压缩这段记忆","expected_skills":["caveman","caveman-compress"],"allowed_tiers":["reference","active"],"must_inspect_sources":true}
+{"case_id":"create_new_skill","task_family":"skill-authoring","prompt":"把这个经验做成一个新的 Codex skill","expected_skills":["skill-creator","absorb-lessons"],"allowed_tiers":["reference","active"],"must_inspect_sources":true}
+{"case_id":"automation_request","task_family":"automation","prompt":"每周一提醒我检查并推送进化台账","expected_skills":[],"expected_tool":"automation_update","allowed_tiers":[],"must_inspect_sources":false}
+{"case_id":"backend_admin_ui_design","task_family":"admin-ui-design","prompt":"Build a backend/admin console or PRD + admin prototype; first pick the closest real design-system reference and use it before coding.","expected_skills":["open-design-design-systems"],"allowed_tiers":["active"],"must_inspect_sources":true}
+{"case_id":"data_analysis_report","task_family":"data-analysis-report","prompt":"Create a professional data analysis report from Excel/CSV/business data; include decision question, data inventory, metric definitions, evidence-backed findings, recommendations, and appropriate HTML/Word/PPT/Excel deliverable.","expected_skills":["data-analysis-report","xlsx"],"allowed_tiers":["active"],"must_inspect_sources":true}

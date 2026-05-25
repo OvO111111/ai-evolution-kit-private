@@ -1,7 +1,7 @@
 ---
 page_type: decision
 created_at: "2026-05-18"
-updated_at: "2026-05-18"
+updated_at: "2026-05-19"
 sensitivity: personal
 source_ids: ["evoskill_article", "evoskill_repo", "skill_routing_audit"]
 confidence: high
@@ -54,11 +54,33 @@ Created a lightweight portfolio:
 
 `C:\Users\skzjc\.codex\private\knowledge-vault\config\skill-portfolio.jsonl`
 
-Current first-pass classification:
+Current classification:
 
-- active: 27
+- active: 29
 - reference: 25
-- candidate: 9
-- total: 61
+- candidate: 8
+- total: 62
 
 Next step before any large cleanup: create a small benchmark matrix and demote/merge skills based on real task outcomes.
+
+## Trigger Regression Check
+
+Created a lightweight trigger test set:
+
+`C:\Users\skzjc\.codex\private\knowledge-vault\config\skill-trigger-tests.jsonl`
+
+Created a checker:
+
+`C:\Users\skzjc\.codex\private\knowledge-vault\scripts\check_skill_routing.py`
+
+Current validation result on 2026-05-22:
+
+- test cases: 27
+- failures: 0
+- warnings: 8
+
+Warnings mean the route is recognized but the skill is intentionally not fully active yet, usually because it is `reference` or `candidate`. This prevents reference skills and design candidates from being falsely treated as validated default behavior.
+
+2026-05-20 update: `open-design-design-systems` was promoted to active only for backend/admin UI and design-system-gated prototype work, after adding a specific trigger test and global rule. Other Open Design skills remain candidate until separately validated.
+
+2026-05-22 update: `data-analysis-report` was added as an active mandatory route for professional data analysis reports, after SenseNova-Skills showed the missing workflow layer between file processing and decision-grade report delivery.

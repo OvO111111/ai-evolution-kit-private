@@ -5,15 +5,39 @@ description: "Use Open Design brand-grade DESIGN.md references to improve visual
 
 # Open Design Design Systems
 
-Use this before producing visual artifacts when the request needs strong taste, brand direction, or a non-generic style.
+Use this before producing visual artifacts when the request needs strong taste, brand direction, or a non-generic style. For admin panels, backends, internal tools, dashboards, and product prototypes, use it as a hard design gate rather than a decorative reference.
 
 ## Workflow
 
 1. Pick one visual direction before making anything.
-2. Read only the relevant reference file from `references/`.
-3. Convert the design system into concrete tokens: palette, typography, spacing, composition, texture, motion, icon style, and avoid-list.
-4. Produce the artifact or image prompt from those tokens, not from vague phrases like "modern" or "premium".
-5. Before finalizing, self-review against hierarchy, specificity, restraint, execution quality, and brand fit.
+2. For product UI, admin panels, dashboards, and backend prototypes, first identify the closest matching real product/design-system reference. Do not invent a style from vague words like "modern" or "premium".
+3. Read only the relevant reference file from `references/`.
+4. Convert the design system into concrete tokens: palette, typography, spacing, composition, density, component shape, icon style, interaction states, and avoid-list.
+5. Produce the artifact or image prompt from those tokens.
+6. Before finalizing, self-review against hierarchy, specificity, restraint, execution quality, data density, and brand fit.
+
+## Admin And Backend UI Defaults
+
+When building or revising a backend, admin console, CRM, operations dashboard, approval system, payment/customer-data console, or internal tool, this skill is mandatory.
+
+Default benchmark routing:
+
+- Dense SaaS/productivity console: `linear-app.md`
+- Analytics, operations, metrics, monitoring, or reporting: `dashboard.md`
+- Knowledge/workflow/editor-like backend: `notion.md`
+- Developer, deployment, logs, API, or infrastructure console: `vercel.md`
+- Payment, billing, finance, risk, or merchant tooling: `stripe.md`
+- WeChat-adjacent Chinese app, mini-program, or social commerce surface: `wechat.md`
+- Content/community/creator operations in China: `xiaohongshu.md`
+- If none match, search or inspect a real product reference before styling.
+
+Backend UI standard:
+
+- Prioritize scan speed, table ergonomics, filters, status chips, empty/error/loading states, bulk actions, audit trails, and clear information hierarchy.
+- Use restrained visual styling. Avoid marketing hero composition, decorative cards, huge gradients, random illustrations, fake metrics, and one-note color palettes.
+- Prefer dense but organized layouts: sticky table headers, predictable side navigation, compact toolbars, readable forms, clear destructive-action confirmation, and visible permissions/state.
+- For every important screen, define at least palette, typography scale, spacing scale, table density, card/panel border radius, status colors, icon set, and responsive behavior before coding.
+- After coding, verify with screenshot/browser review when possible. If no visual verification ran, say so.
 
 ## Reference Choices
 

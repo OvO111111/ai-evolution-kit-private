@@ -29,6 +29,20 @@ If mode is ambiguous and the wrong choice would change the output file, ask one 
 7. **Close the loop.** For substantial work, produce or request the next artifact that validates the PRD: solution plan, prototype notes, test cases, rollout checklist, or recurring-task specification.
 8. **Self-review before delivery.** Check for vague language, missing success metrics, untestable requirements, hidden technical implementation, and inconsistent terminology.
 
+## Mandatory Trigger Guard
+
+When the user asks for PRD, product plan, solution plan, backend/admin prototype, grey-release system, complaint workflow, or "方案 + HTML/mockup" work, this skill must run before drafting.
+
+Before producing the artifact:
+
+- Locate and read the referenced PRDs, mockup HTML files, screenshots, customer/complaint samples, interface docs, and existing workflow notes.
+- Build the context packet from those sources.
+- Use the reference PRDs/mockups as style and quality standards when the user provides them.
+- If the user names a project path or says reference files already exist, inspect that path first.
+- If expected references cannot be found, state exactly what was searched and ask for the missing source or proceed only with explicit assumptions.
+
+Failure guard: do not output a generic PRD, flowchart, industry template, or imagined project style before source inspection. If no source has been inspected, the output is not acceptable.
+
 ## Context-First Intake
 
 Before writing a PRD or方案, build a compact context packet:
