@@ -1,6 +1,6 @@
 param(
-    [string]$RepoPath = "C:\Users\hi\Documents\Codex\2026-05-24\ai-evolution-kit-private",
-    [string]$CodexHome = "C:\Users\hi\.codex"
+    [string]$RepoPath = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "..")).Path,
+    [string]$CodexHome = (Join-Path $env:USERPROFILE ".codex")
 )
 
 $ErrorActionPreference = "Stop"
