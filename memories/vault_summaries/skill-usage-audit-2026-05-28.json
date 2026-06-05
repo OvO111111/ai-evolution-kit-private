@@ -1,0 +1,993 @@
+{
+  "meta": {
+    "sessions_root": "C:\\Users\\skzjc\\.codex\\sessions",
+    "session_files": 16,
+    "records_scanned": 26785,
+    "cutoff": "2026-05-28T06:28:39.804Z",
+    "skill_count": 65
+  },
+  "rows": [
+    {
+      "name": "absorb-lessons",
+      "folder": "absorb-lessons",
+      "tier": "active",
+      "skill_file_reads": 2,
+      "assistant_mentions": 21,
+      "user_mentions": 9,
+      "tool_arg_mentions": 58,
+      "evidence_events": 88,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\absorb-lessons\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:123:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:130:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:135:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "admin-platform-execution-gate",
+      "folder": "admin-platform-execution-gate",
+      "tier": "active",
+      "skill_file_reads": 1,
+      "assistant_mentions": 5,
+      "user_mentions": 0,
+      "tool_arg_mentions": 10,
+      "evidence_events": 15,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\admin-platform-execution-gate\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\27\\rollout-2026-05-27T14-21-53-019e6818-c155-79d0-8595-dcfe0a3e07f7.jsonl:1551:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\27\\rollout-2026-05-27T14-21-53-019e6818-c155-79d0-8595-dcfe0a3e07f7.jsonl:1554:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\27\\rollout-2026-05-27T14-21-53-019e6818-c155-79d0-8595-dcfe0a3e07f7.jsonl:1560:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "agent-reach",
+      "folder": "agent-reach",
+      "tier": "active",
+      "skill_file_reads": 1,
+      "assistant_mentions": 26,
+      "user_mentions": 13,
+      "tool_arg_mentions": 99,
+      "evidence_events": 138,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\agent-reach\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:366:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:424:assistant_mentions"
+      ]
+    },
+    {
+      "name": "browser",
+      "folder": "browser-harness",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 30,
+      "user_mentions": 34,
+      "tool_arg_mentions": 159,
+      "evidence_events": 223,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\browser-harness\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:252:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:3922:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:3923:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "data-analysis-report",
+      "folder": "data-analysis-report",
+      "tier": "active",
+      "skill_file_reads": 4,
+      "assistant_mentions": 6,
+      "user_mentions": 3,
+      "tool_arg_mentions": 19,
+      "evidence_events": 28,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\data-analysis-report\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4116:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4121:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4126:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "design-taste-frontend",
+      "folder": "design-taste-frontend",
+      "tier": "active",
+      "skill_file_reads": 1,
+      "assistant_mentions": 5,
+      "user_mentions": 0,
+      "tool_arg_mentions": 11,
+      "evidence_events": 16,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\design-taste-frontend\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4634:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4635:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4652:assistant_mentions"
+      ]
+    },
+    {
+      "name": "desktop-control",
+      "folder": "desktop-control",
+      "tier": "active",
+      "skill_file_reads": 1,
+      "assistant_mentions": 9,
+      "user_mentions": 9,
+      "tool_arg_mentions": 36,
+      "evidence_events": 54,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\desktop-control\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6173:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6174:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6178:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "docx",
+      "folder": "docx",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 30,
+      "user_mentions": 13,
+      "tool_arg_mentions": 141,
+      "evidence_events": 184,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\docx\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:2566:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:2575:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:2591:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "image-to-code",
+      "folder": "image-to-code",
+      "tier": "active",
+      "skill_file_reads": 1,
+      "assistant_mentions": 4,
+      "user_mentions": 0,
+      "tool_arg_mentions": 11,
+      "evidence_events": 15,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\image-to-code\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4634:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4635:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4652:assistant_mentions"
+      ]
+    },
+    {
+      "name": "lark-doc",
+      "folder": "lark-doc",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 1,
+      "tool_arg_mentions": 31,
+      "evidence_events": 33,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-doc\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3532:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-drive",
+      "folder": "lark-drive",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 8,
+      "evidence_events": 9,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-drive\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\15\\rollout-2026-05-15T16-11-10-019e2ab0-7f72-7383-a49e-f5f02950d1b7.jsonl:617:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\15\\rollout-2026-05-15T16-11-10-019e2ab0-7f72-7383-a49e-f5f02950d1b7.jsonl:639:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "ocr-and-documents",
+      "folder": "ocr-and-documents",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 3,
+      "user_mentions": 4,
+      "tool_arg_mentions": 13,
+      "evidence_events": 20,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\ocr-and-documents\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:366:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:395:assistant_mentions"
+      ]
+    },
+    {
+      "name": "open-design-design-systems",
+      "folder": "open-design-design-systems",
+      "tier": "active",
+      "skill_file_reads": 5,
+      "assistant_mentions": 16,
+      "user_mentions": 4,
+      "tool_arg_mentions": 62,
+      "evidence_events": 82,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-design-systems\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6870:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1542:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1547:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "pdf",
+      "folder": "pdf",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 14,
+      "user_mentions": 12,
+      "tool_arg_mentions": 43,
+      "evidence_events": 69,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\pdf\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6271:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:221:assistant_mentions"
+      ]
+    },
+    {
+      "name": "pm-prd",
+      "folder": "pm-prd",
+      "tier": "active",
+      "skill_file_reads": 7,
+      "assistant_mentions": 37,
+      "user_mentions": 10,
+      "tool_arg_mentions": 67,
+      "evidence_events": 114,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\pm-prd\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:424:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:429:user_mentions"
+      ]
+    },
+    {
+      "name": "pptx",
+      "folder": "pptx",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 6,
+      "user_mentions": 4,
+      "tool_arg_mentions": 24,
+      "evidence_events": 34,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\pptx\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:221:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:306:assistant_mentions"
+      ]
+    },
+    {
+      "name": "redesign-existing-projects",
+      "folder": "redesign-existing-projects",
+      "tier": "active",
+      "skill_file_reads": 1,
+      "assistant_mentions": 4,
+      "user_mentions": 0,
+      "tool_arg_mentions": 9,
+      "evidence_events": 13,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\redesign-existing-projects\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4634:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4635:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:4652:assistant_mentions"
+      ]
+    },
+    {
+      "name": "video-frames",
+      "folder": "video-frames",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 2,
+      "user_mentions": 1,
+      "tool_arg_mentions": 7,
+      "evidence_events": 10,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\video-frames\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:366:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:370:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "web-access",
+      "folder": "web-access",
+      "tier": "active",
+      "skill_file_reads": 4,
+      "assistant_mentions": 25,
+      "user_mentions": 15,
+      "tool_arg_mentions": 78,
+      "evidence_events": 118,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\web-access\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:5522:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6125:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6138:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "wechat-pay-product-design",
+      "folder": "wechat-pay-product-design",
+      "tier": "active",
+      "skill_file_reads": 2,
+      "assistant_mentions": 4,
+      "user_mentions": 0,
+      "tool_arg_mentions": 21,
+      "evidence_events": 25,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\wechat-pay-product-design\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1611:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1614:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1618:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "wechat-work-context",
+      "folder": "wechat-work-context",
+      "tier": "active",
+      "skill_file_reads": 3,
+      "assistant_mentions": 7,
+      "user_mentions": 9,
+      "tool_arg_mentions": 42,
+      "evidence_events": 58,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\wechat-work-context\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1882:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1892:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1992:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "xlsx",
+      "folder": "xlsx",
+      "tier": "active",
+      "skill_file_reads": 0,
+      "assistant_mentions": 8,
+      "user_mentions": 10,
+      "tool_arg_mentions": 65,
+      "evidence_events": 83,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\xlsx\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:221:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:359:assistant_mentions"
+      ]
+    },
+    {
+      "name": "open-design-brand-guidelines",
+      "folder": "open-design-brand-guidelines",
+      "tier": "candidate",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 0,
+      "evidence_events": 0,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-brand-guidelines\\SKILL.md",
+      "evidence": []
+    },
+    {
+      "name": "open-design-canvas-design",
+      "folder": "open-design-canvas-design",
+      "tier": "candidate",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-canvas-design\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6868:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "open-design-color-expert",
+      "folder": "open-design-color-expert",
+      "tier": "candidate",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 0,
+      "evidence_events": 0,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-color-expert\\SKILL.md",
+      "evidence": []
+    },
+    {
+      "name": "open-design-creative-director",
+      "folder": "open-design-creative-director",
+      "tier": "candidate",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-creative-director\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6867:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "open-design-design-review",
+      "folder": "open-design-design-review",
+      "tier": "candidate",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 5,
+      "evidence_events": 6,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-design-review\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:6869:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3532:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3717:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "open-design-frontend-design",
+      "folder": "open-design-frontend-design",
+      "tier": "candidate",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 5,
+      "evidence_events": 5,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-frontend-design\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1508:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:2735:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3532:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "open-design-image-enhancer",
+      "folder": "open-design-image-enhancer",
+      "tier": "candidate",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 0,
+      "evidence_events": 0,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-image-enhancer\\SKILL.md",
+      "evidence": []
+    },
+    {
+      "name": "open-design-screenshots-marketing",
+      "folder": "open-design-screenshots-marketing",
+      "tier": "candidate",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 0,
+      "evidence_events": 0,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\open-design-screenshots-marketing\\SKILL.md",
+      "evidence": []
+    },
+    {
+      "name": "cavecrew",
+      "folder": "cavecrew",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 6,
+      "evidence_events": 7,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\cavecrew\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1372:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1384:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "caveman",
+      "folder": "caveman",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 10,
+      "user_mentions": 10,
+      "tool_arg_mentions": 24,
+      "evidence_events": 44,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\caveman\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1328:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1333:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1341:assistant_mentions"
+      ]
+    },
+    {
+      "name": "caveman-commit",
+      "folder": "caveman-commit",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 3,
+      "evidence_events": 4,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\caveman-commit\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1372:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1384:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "caveman-compress",
+      "folder": "caveman-compress",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 3,
+      "user_mentions": 0,
+      "tool_arg_mentions": 13,
+      "evidence_events": 16,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\caveman-compress\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1351:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1358:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1361:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "caveman-help",
+      "folder": "caveman-help",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 3,
+      "evidence_events": 4,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\caveman-help\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1372:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1384:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "caveman-review",
+      "folder": "caveman-review",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 3,
+      "evidence_events": 4,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\caveman-review\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1372:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1384:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "caveman-stats",
+      "folder": "caveman-stats",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 4,
+      "evidence_events": 5,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\caveman-stats\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1372:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:1384:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "imagegen",
+      "folder": "imagegen",
+      "tier": "reference",
+      "skill_file_reads": 1,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 6,
+      "evidence_events": 7,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\.system\\imagegen\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:1913:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\09\\rollout-2026-05-09T11-07-30-019e0ab4-54f1-7142-99be-053815900a67.jsonl:13:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-approval",
+      "folder": "lark-approval",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-approval\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-attendance",
+      "folder": "lark-attendance",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-attendance\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-base",
+      "folder": "lark-base",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 20,
+      "evidence_events": 20,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-base\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3532:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\15\\rollout-2026-05-15T16-11-10-019e2ab0-7f72-7383-a49e-f5f02950d1b7.jsonl:37:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-calendar",
+      "folder": "lark-calendar",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-calendar\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-contact",
+      "folder": "lark-contact",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-contact\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-event",
+      "folder": "lark-event",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-event\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-im",
+      "folder": "lark-im",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 1,
+      "tool_arg_mentions": 2,
+      "evidence_events": 3,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-im\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3532:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-mail",
+      "folder": "lark-mail",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-mail\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-markdown",
+      "folder": "lark-markdown",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-markdown\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-minutes",
+      "folder": "lark-minutes",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 2,
+      "evidence_events": 2,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-minutes\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3532:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-okr",
+      "folder": "lark-okr",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-okr\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-openapi-explorer",
+      "folder": "lark-openapi-explorer",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-openapi-explorer\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-shared",
+      "folder": "lark-shared",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 1,
+      "tool_arg_mentions": 6,
+      "evidence_events": 7,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-shared\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:192:user_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\15\\rollout-2026-05-15T16-11-10-019e2ab0-7f72-7383-a49e-f5f02950d1b7.jsonl:45:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-sheets",
+      "folder": "lark-sheets",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-sheets\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-skill-maker",
+      "folder": "lark-skill-maker",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-skill-maker\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-slides",
+      "folder": "lark-slides",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-slides\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-task",
+      "folder": "lark-task",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-task\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-vc",
+      "folder": "lark-vc",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-vc\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-vc-agent",
+      "folder": "lark-vc-agent",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-vc-agent\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-whiteboard",
+      "folder": "lark-whiteboard",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-whiteboard\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-wiki",
+      "folder": "lark-wiki",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 3,
+      "evidence_events": 3,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-wiki\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3532:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\15\\rollout-2026-05-15T16-11-10-019e2ab0-7f72-7383-a49e-f5f02950d1b7.jsonl:35:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-workflow-meeting-summary",
+      "folder": "lark-workflow-meeting-summary",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-workflow-meeting-summary\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "lark-workflow-standup-report",
+      "folder": "lark-workflow-standup-report",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 1,
+      "evidence_events": 1,
+      "path": "C:\\Users\\skzjc\\.agents\\skills\\lark-workflow-standup-report\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "openai-docs",
+      "folder": "openai-docs",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 1,
+      "user_mentions": 0,
+      "tool_arg_mentions": 3,
+      "evidence_events": 4,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\.system\\openai-docs\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3532:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3589:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "plugin-creator",
+      "folder": "plugin-creator",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 0,
+      "user_mentions": 0,
+      "tool_arg_mentions": 2,
+      "evidence_events": 2,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\.system\\plugin-creator\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:488:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:3378:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "skill-creator",
+      "folder": "skill-creator",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 3,
+      "user_mentions": 1,
+      "tool_arg_mentions": 47,
+      "evidence_events": 51,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\.system\\skill-creator\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:22:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:84:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:91:tool_arg_mentions"
+      ]
+    },
+    {
+      "name": "skill-installer",
+      "folder": "skill-installer",
+      "tier": "reference",
+      "skill_file_reads": 0,
+      "assistant_mentions": 2,
+      "user_mentions": 0,
+      "tool_arg_mentions": 8,
+      "evidence_events": 10,
+      "path": "C:\\Users\\skzjc\\.codex\\skills\\.system\\skill-installer\\SKILL.md",
+      "evidence": [
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:25:assistant_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\08\\rollout-2026-05-08T12-02-24-019e05c0-3ac5-7f53-b43d-875309f2ac5f.jsonl:26:tool_arg_mentions",
+        "C:\\Users\\skzjc\\.codex\\sessions\\2026\\05\\11\\rollout-2026-05-11T10-43-55-019e14eb-72b4-7fa1-8f6d-e26e63c03ad3.jsonl:21:tool_arg_mentions"
+      ]
+    }
+  ]
+}

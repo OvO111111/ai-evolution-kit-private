@@ -48,3 +48,17 @@ Recommended benchmark set:
 ## Current Policy
 
 The system should be treated as improved in coverage, not automatically improved in intelligence. Real improvement is only counted when the relevant benchmark passes with less confusion, fewer retries, or better final output.
+
+## 2026-06-04 Boundary Correction
+
+The user identified a deeper design error: `AGENTS.md` was starting to act like a skill trigger registry. That does not scale and damages both layers.
+
+Corrected policy:
+
+- `AGENTS.md` is the meta-router and operating boundary file, not the list of all skills.
+- Skill trigger semantics belong in each skill's `SKILL.md` frontmatter, especially `description`.
+- If a skill does not trigger naturally, fix its metadata, add a narrow router skill, or add a trigger test.
+- Do not add detailed per-skill workflows to `AGENTS.md`; keep them in the skill body or references.
+- One hundred skills should mean one hundred clear descriptions, status labels, and validation prompts, not one hundred global paragraphs.
+
+Implemented change: rewrote the global `Skill Routing And Evolution` section in `C:\Users\skzjc\.codex\AGENTS.md` to remove concrete skill-name routing and replace it with this boundary model.

@@ -1,6 +1,6 @@
 ---
 name: open-design-design-systems
-description: "Use Open Design brand-grade DESIGN.md references to improve visual direction, interface styling, marketing graphics, dashboards, posters, and design-system-driven artifacts. Applies when the user asks for beautiful design, polished UI, brand style, visual mockups, posters, landing pages, app screens, or design critique."
+description: "Use Open Design brand-grade DESIGN.md references to improve visual direction, interface styling, marketing graphics, dashboards, posters, and design-system-driven artifacts. Applies when the user asks for beautiful design, polished UI, brand style, visual mockups, posters, landing pages, app screens, or design critique. Also trigger for admin/internal UI complaints about ugly, amateur, garbage, weak hierarchy, poor layout, bad taste, fake controls, wrong page relationships, or failure to follow installed design skills."
 ---
 
 # Open Design Design Systems
@@ -15,6 +15,8 @@ Use this before producing visual artifacts when the request needs strong taste, 
 4. Convert the design system into concrete tokens: palette, typography, spacing, composition, density, component shape, icon style, interaction states, and avoid-list.
 5. Produce the artifact or image prompt from those tokens.
 6. Before finalizing, self-review against hierarchy, specificity, restraint, execution quality, data density, and brand fit.
+
+Reading this skill or a reference file is not adoption. For admin/internal products, the output must visibly carry the chosen system through navigation, page hierarchy, tables, forms, controls, empty/error/loading states, and metric presentation. If the review finds only cosmetic changes on top of a broken IA or page model, restart from the admin platform gate.
 
 ## Admin And Backend UI Defaults
 
@@ -38,6 +40,8 @@ Backend UI standard:
 - Prefer dense but organized layouts: sticky table headers, predictable side navigation, compact toolbars, readable forms, clear destructive-action confirmation, and visible permissions/state.
 - For every important screen, define at least palette, typography scale, spacing scale, table density, card/panel border radius, status colors, icon set, and responsive behavior before coding.
 - After coding, verify with screenshot/browser review when possible. If no visual verification ran, say so.
+- If the user says the whole platform still looks amateur, stop polishing individual widgets. Rebuild the layout contract first: left navigation purpose, first-screen decision, content density, primary action, detail pattern, and what each page must not show.
+- Reference docs are not mood boards. The final UI must inherit concrete structure: shell proportions, density, type scale, border/radius discipline, status vocabulary, table/detail pattern, and interaction states. If only the colors changed, the skill was not applied.
 
 ## Reference Choices
 

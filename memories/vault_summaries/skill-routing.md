@@ -23,6 +23,8 @@ Before any non-trivial task, run a skill gate:
 
 For tasks involving existing artifacts, source inspection is part of the gate. It is not optional follow-up work.
 
+The skill gate must leave evidence. A mandatory skill is not considered applied unless its `SKILL.md` was actually opened in the current task or its concrete tool/script was used. Mentioning the skill name, relying on memory, or having the skill installed is not enough.
+
 ## Current Routing Order
 
 1. Structured local tools for files, docs, spreadsheets, slides, databases, and known local workflows.
@@ -42,7 +44,12 @@ For tasks involving existing artifacts, source inspection is part of the gate. I
 ## Mandatory Trigger Families
 
 - PRD, product plan, solution plan, backend/admin prototype, grey-release decision system, or proposal + prototype tasks: use `pm-prd` and inspect referenced PRDs, HTML mockups, samples, interface docs, workflows, and confirmed business boundaries before drafting.
-- Backend/admin UI, dashboards, internal tools, CRMs, approval systems, payment/customer-data consoles, or admin prototypes: use `open-design-design-systems`, pick the closest reference system first, and do not style from generic adjectives.
+- New self-operated H5 projects under the same unified admin platform, especially when the user says "新H5：项目名", "H5项目：项目名", "项目工厂：项目名", or references 声之境, 多应用管理平台, 统一后台, 每周穿搭, or fixed PRD + 750px H5 HTML + admin HTML outputs: use `app-factory-h5-admin` first, then `pm-prd`, `admin-platform-execution-gate`, and `open-design-design-systems` as required. The skill must produce a source inheritance/context packet before drafting artifacts.
+- Public-facing frontend, landing pages, portfolio/brand pages, visually important website redesigns, or image-first website work: use Taste routing. Use `design-taste-frontend` for new public pages, `redesign-existing-projects` for existing UI polish, and `image-to-code` when generated/reference images should drive the implementation.
+- Backend/admin UI, dashboards, internal tools, CRMs, approval systems, payment/customer-data consoles, or admin prototypes: use both `admin-platform-execution-gate` and `open-design-design-systems`, pick the closest reference system first, and do not style from generic adjectives. This is a stop condition: before coding or reporting completion, lock selected reference, page task matrix, primary action, table/form/filter density, status/error/empty/loading states, metric definitions, permission/audit behavior, responsive behavior, and screenshot review plan.
+- Backend/admin UI that has already been rejected twice, or where the user says the whole platform is ugly, structurally wrong, not using the installed skills, or only receiving small patches: trigger a redesign loop breaker. Stop project-code edits, produce a reset packet and an isolated review artifact or explicit before-code plan, then continue only after the platform model, IA, metric logic, interaction state, and visual tokens have been reset. Opening a skill is evidence of routing, not evidence of successful absorption.
+- The user must not need to say the rule name. Natural complaints such as "丑", "垃圾", "像新人", "没审美", "页面关系不对", "小改没用", "没继承参考", "指标没脑子", "按钮是假的吗", "skill 没用上", or "先别改, 让我看方案" are sufficient trigger evidence for admin/internal products.
+- For admin/internal redesigns, skill application is judged by concrete product patterns, not by naming a design system or changing visual tokens. The artifact must show app shell proportions, navigation model, first-screen decision, 3-5 decision metrics, table density, filter/search toolbar, detail drawer or split-pane, action states, empty/error/loading states, and explicit "must not show" decisions. A CRUD/card pile with better colors fails the route.
 - Data analysis reports, Excel/CSV analysis, KPI/trend/comparison/cohort/root-cause reports, visualized HTML reports, Word/PPT analysis reports, or "analysis is not professional enough" feedback: use `data-analysis-report` first, then supporting file-format skills such as `xlsx`, `docx`, `pptx`, or `ocr-and-documents`.
 - Self-evolution, external lessons, skill/rule updates, or "make Codex smarter" tasks: use `absorb-lessons`, log source + decision + validation.
 - WeChat public article or difficult public/social web sources: route through `web-access`; use `agent-reach` or browser fallback when static fetch fails.
@@ -52,6 +59,15 @@ For tasks involving existing artifacts, source inspection is part of the gate. I
 ## Validation Rule
 
 When two skills overlap and the cost is reasonable, propose an A/B comparison tied to a real task. Do not install or benchmark every candidate immediately when there is no task pressure.
+
+Run a usage audit when the user questions whether skills are really being triggered:
+
+```powershell
+python tools\audit_skill_usage.py
+python tools\check_skill_routing.py
+```
+
+Audit result from 2026-05-28: 66 discovered skills, 32 active, 10 active skills with zero strong/assistant evidence, and 29 skills with zero evidence. The failure class is global routing enforcement, not a single design skill. Active-zero skills require one explicit disposition: demote, add/repair a trigger test, or mark as cold-active with a specific future trigger.
 
 ## EvoSkill-Inspired Governance
 
@@ -70,12 +86,14 @@ Admission rule:
 - Do not keep a skill just because it was useful once.
 - Do not let overlapping skills share the same default trigger unless one is clearly the router and the others are references.
 - A skill should remain active only if it improves a realistic task, avoids repeated errors, or provides an executable tool path unavailable elsewhere.
+- A newly installed or promoted skill starts as unproven until there is strong evidence: current-task `SKILL.md` read, tool/script execution, route test, or realistic task validation.
 
 Eviction rule:
 
 - If a skill overlaps another and has no unique trigger/use case, demote it to reference or merge it.
 - If a skill causes wrong routing twice, rewrite its description or demote it.
 - If a skill has not been used or validated and only adds noise, keep it out of active routing.
+- If a mandatory design skill is skipped and the output is ugly, structurally weak, or unverified, treat that as routing failure, not design taste preference. Patch the routing gate and add a trigger test before discussing more candidate tools.
 
 Benchmark rule:
 

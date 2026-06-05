@@ -33,6 +33,8 @@ If mode is ambiguous and the wrong choice would change the output file, ask one 
 
 When the user asks for PRD, product plan, solution plan, backend/admin prototype, grey-release system, complaint workflow, or "方案 + HTML/mockup" work, this skill must run before drafting.
 
+Boundary with `app-factory-h5-admin`: for new H5 projects under the unified admin platform, `pm-prd` is used for source inspection, stakeholder/context intake, product decomposition, and blocking questions first. Do not generate the full PRD until the app-factory workflow has produced HTML prototypes and the user has confirmed the page/function direction, unless the user explicitly asks for PRD-first output.
+
 Before producing the artifact:
 
 - Locate and read the referenced PRDs, mockup HTML files, screenshots, customer/complaint samples, interface docs, and existing workflow notes.

@@ -49,34 +49,34 @@ After editing, run the cheapest meaningful verification: tests, lint, typecheck,
 If a tool fails, diagnose the failure mode instead of repeating the same command. Escalate through more capable tools only when the prior result proves it is needed.
 
 ## Web And Browser Work
-Use static fetch/search for simple public pages. For anti-scraping sites, login-state pages, or pages that need real rendering, use browser/CDP or a site-specific skill path.
+Use the lowest capable access layer: static fetch/search for simple public pages, rendered browser/CDP for login-state or dynamic pages, site-specific tooling when a generic browser path has proven unreliable, and desktop control only for non-browser apps or explicit computer-control tasks.
 
-For WeChat public articles, expect Jina or curl to fail with environment verification. Prefer the established Camoufox/debug-HTML fallback documented in the `web-access` skill.
+When a web tool fails, record the failure mode and move to a more capable layer. Do not repeat the same blocked fetch pattern.
 
 ## Skill Routing And Evolution
-Use the smallest matching skill set. Do not load multiple overlapping skills just because they exist.
+`AGENTS.md` is not a skill registry. Do not make it a growing list of every installed skill, trigger phrase, or domain workflow.
 
-Before any non-trivial task, run a quick skill gate: identify the task family, selected skill(s), and source-inspection requirement. If a mandatory skill exists and has not been opened or applied, stop and load it before acting. If no skill is used, state the reason briefly. For tasks involving existing artifacts, inspecting the referenced sources is part of the gate, not an optional later step.
+Skill triggering belongs in each skill's `SKILL.md` frontmatter: `name` and especially `description` define when the skill should be used. The skill body is loaded only after trigger. If routing is wrong, fix the skill description, add a router skill, or add a trigger test; do not keep adding one-off rules here.
 
-Prefer structured local tools before broad automation: Feishu/Lark skills for Feishu, `wx-cli`/`wechat-work-context` for WeChat group history, `gh`/GitHub skills for GitHub, file-format skills for Office/PDF/XLSX, then browser or desktop control only when the structured path cannot reach the goal.
+For non-trivial tasks, run a quick skill gate before acting: identify the task family, decide whether the available skill metadata clearly matches, and identify required source inspection. If a skill is selected, open its `SKILL.md` or use its concrete tool/script before drafting, coding, or claiming completion. If no skill is selected, say why briefly and continue.
 
-For web tasks, treat `web-access` as the default router. Use `agent-reach` for public web/social/video/article sources that need its site-specific tooling. Use `browser-harness` for rendered or login-state browser pages. Use `desktop-control` only for non-browser desktop apps or explicit computer-control tasks.
+Use the smallest matching skill set. When skills overlap, prefer the one with the narrowest accurate description for the current task. If overlap remains ambiguous, compare the candidates on a small realistic task or mark one as reference-only; do not load every overlapping skill.
 
-For design tasks, use the normal frontend rules first. Use one relevant `open-design-*` skill when the task is about visual direction, image/design generation, design systems, color, or design review. Do not stack multiple design skills unless the output needs those separate phases.
+Detailed workflows belong in skills and their references, not in this file. `AGENTS.md` may keep only durable boundaries: inspect existing artifacts before changing them, prefer structured local tools before browser/desktop automation, isolate sensitive data, verify before completion, and report outcomes before implementation details.
 
-For backend/admin UI, dashboards, internal tools, CRMs, approval systems, payment/customer-data consoles, or "PRD + admin prototype" work, `open-design-design-systems` is mandatory. Pick the closest matching real product/design-system reference before coding: `linear-app` for dense SaaS/productivity consoles, `dashboard` for analytics/ops, `notion` for workflow/editor backends, `vercel` for developer/infrastructure consoles, `stripe` for payment/finance, `wechat` for WeChat-adjacent Chinese surfaces, and `xiaohongshu` for Chinese creator/content operations. If none fit, search or inspect a real reference first. Do not style backend UI from generic adjectives.
+When routing quality is questioned, audit evidence instead of adding more rules. Active skills with zero strong usage evidence must be demoted, given a trigger test, or marked cold-active with a specific future trigger.
 
-For data analysis reports, Excel/CSV analysis, KPI/trend/comparison/cohort/root-cause reports, visualized HTML reports, Word/PPT analysis reports, or "analysis is not professional enough" feedback, `data-analysis-report` is mandatory. Start from the decision question, inventory data sources and metric definitions, then produce evidence-backed findings and recommendations. Use `xlsx`, `ocr-and-documents`, `docx`, `pptx`, and research/web skills as supporting tools, but do not let file processing, charts, endpoints, or tests replace the report's business answer.
+For skill growth at scale, maintain quality through metadata, active/reference/candidate status, overlap checks, and realistic validation prompts. One hundred skills should mean one hundred good descriptions and tests, not one hundred paragraphs in `AGENTS.md`.
 
-Use `caveman*` skills only when the user asks for compressed mode, token-saving summaries, commit/review compression, or memory compression. Do not make compressed speech the default conversation style.
+Use compressed or token-saving modes only when the user asks for them. Do not make compressed speech the default conversation style.
 
-For self-evolution, use `absorb-lessons` as the default process. New external ideas go through: source logged, overlap checked, adopt/reject decision written, focused skill/rule change staged, and validation run. SkillClaw-style automatic evolution is a workflow reference, not a default traffic proxy.
-
-For PRD, product plan, solution plan, backend/admin prototype, grey-release decision system, or "方案/proposal + 原型/prototype" tasks, `pm-prd` is mandatory. Before drafting, locate and read the user's referenced PRDs, HTML mockups, samples, interface docs, current workflow, and confirmed business boundaries. If those sources exist but have not been inspected, do not produce the PRD/prototype. Produce a compact context packet first, then write the artifact against that packet.
+Self-evolution intake must log the source, check overlap, write a concise adopt/reject strategy, stage a focused skill or rule change, and validate before claiming improvement. New external methods are candidates until tested.
 
 Do not push the private evolution export on every small update. Accumulate local changes and push only when the user asks, when a stable batch is ready, or roughly weekly by default. Urgent safety or portability updates may be pushed sooner, but say why.
 
 Do not claim a new skill or rule improved performance until at least one realistic validation has been run or the skipped validation is explicitly reported.
+
+After Codex, plugin, skill, CLI, or local tool updates, run a capability refresh before changing defaults: inventory changed versions and newly available skills/tools, map them to existing capability tiers, run a smoke test for any capability that may affect user workflows, then update routing rules only for validated improvements. Do not claim "Computer Use", browser control, design, memory, or skill routing improved from version numbers alone.
 
 When a new project, plugin, skill, or method overlaps with an existing capability, proactively propose a comparison test instead of only giving an opinion. The proposal should name the variants, one realistic task, success criteria, cost/time, and the recommended default. If the test is low-cost and safe, run it; if it requires install, account access, spending, or sensitive data, ask before running. Treat untested comparisons as candidates, not adopted improvements.
 

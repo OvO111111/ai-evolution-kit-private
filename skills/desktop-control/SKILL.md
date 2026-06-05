@@ -1,11 +1,13 @@
 ---
 name: desktop-control
-description: Control the user's Windows desktop apps directly through screenshots, window activation, mouse, keyboard, scrolling, and app launch commands. Use when the user wants Codex to operate non-browser GUI apps such as Excel, Word, Feishu/Lark, WeChat, QQ Music, desktop settings, or other software visible on screen.
+description: Legacy fallback for controlling Windows desktop apps through screenshots, window activation, mouse, keyboard, scrolling, and app launch commands. Use only when the official `computer-use` plugin is not listed in the current session, fails its lightweight connection test, or cannot cover the required non-browser GUI workflow.
 ---
 
 # Desktop Control
 
-Use this skill when browser/CDP, shell, Office file APIs, or app-specific APIs are insufficient and the task needs visible desktop interaction.
+Use this skill only as a fallback when browser/CDP, shell, Office file APIs, app-specific APIs, and the official `computer-use` plugin are insufficient or unavailable, and the task still needs visible desktop interaction.
+
+If the official `computer-use` plugin is listed as available in the current session, read and attempt that skill first. Do not use this legacy script path merely because it is familiar.
 
 ## Tool
 

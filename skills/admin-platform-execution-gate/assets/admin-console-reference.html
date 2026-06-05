@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Internal Tools Console Reference</title>
+  <style>
+    :root {
+      --bg: #08090a;
+      --panel: #0f1011;
+      --panel-2: #151719;
+      --line: rgba(255,255,255,.075);
+      --line-soft: rgba(255,255,255,.045);
+      --text: #f4f6f8;
+      --muted: #9aa1ad;
+      --faint: #626a76;
+      --accent: #7170ff;
+      --accent-2: #8a89ff;
+      --good: #27a644;
+      --warn: #e2a336;
+      --bad: #f36d6d;
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      letter-spacing: 0;
+    }
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 248px minmax(0, 1fr);
+    }
+    .sidebar {
+      background: #0b0c0e;
+      border-right: 1px solid var(--line);
+      padding: 18px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .brand {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 8px;
+      font-weight: 590;
+    }
+    .brand-mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, #7170ff, #4f46e5);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset;
+    }
+    .nav-section { display: grid; gap: 4px; }
+    .nav-title {
+      color: var(--faint);
+      font-size: 11px;
+      font-weight: 590;
+      padding: 8px;
+      text-transform: uppercase;
+    }
+    .nav-item {
+      height: 34px;
+      border-radius: 7px;
+      color: #c8ced7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 9px;
+      border: 1px solid transparent;
+    }
+    .nav-item.active {
+      background: rgba(255,255,255,.055);
+      border-color: var(--line);
+      color: var(--text);
+    }
+    .nav-count {
+      color: var(--faint);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    .main {
+      min-width: 0;
+      display: grid;
+      grid-template-rows: 58px minmax(0, 1fr);
+    }
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(15,16,17,.88);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .crumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .crumb strong { color: var(--text); font-weight: 510; }
+    .actions { display: flex; gap: 8px; }
+    button {
+      height: 32px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      color: #e5e9f0;
+      padding: 0 11px;
+      font: inherit;
+    }
+    button.primary {
+      border-color: rgba(113,112,255,.45);
+      background: #5e6ad2;
+      color: #fff;
+    }
+    .content {
+      min-width: 0;
+      padding: 22px 24px 28px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 21px;
+      line-height: 1.25;
+      font-weight: 590;
+    }
+    .subtitle { color: var(--muted); line-height: 1.55; max-width: 760px; }
+    .decision {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .metric {
+      min-height: 92px;
+      background: rgba(255,255,255,.028);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 13px 14px;
+      display: grid;
+      align-content: space-between;
+    }
+    .metric-label {
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .metric-value {
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 590;
+      font-variant-numeric: tabular-nums;
+    }
+    .metric-next { color: var(--faint); font-size: 12px; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 22px;
+      padding: 0 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: #d7dce5;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 99px; background: var(--good); }
+    .dot.warn { background: var(--warn); }
+    .dot.bad { background: var(--bad); }
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 14px;
+      min-height: 520px;
+    }
+    .panel {
+      min-width: 0;
+      background: rgba(255,255,255,.022);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .panel-head {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .panel-title { font-weight: 590; }
+    .toolbar { display: flex; gap: 8px; align-items: center; }
+    .search {
+      width: 260px;
+      height: 30px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 13px;
+    }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th, td {
+      height: 44px;
+      padding: 0 12px;
+      border-bottom: 1px solid var(--line-soft);
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 13px;
+    }
+    th {
+      color: var(--faint);
+      font-weight: 510;
+      background: rgba(255,255,255,.018);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    tr.selected td { background: rgba(113,112,255,.08); }
+    .mono { font-family: "SF Mono", Consolas, ui-monospace, monospace; font-size: 12px; color: #d6d9e0; }
+    .muted { color: var(--muted); }
+    .drawer {
+      background: rgba(255,255,255,.026);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 50px minmax(0, 1fr);
+    }
+    .drawer-body { padding: 14px; display: grid; gap: 14px; align-content: start; }
+    .kv { display: grid; grid-template-columns: 112px 1fr; gap: 8px; font-size: 13px; }
+    .kv span:first-child { color: var(--faint); }
+    .evidence {
+      border: 1px solid var(--line-soft);
+      border-radius: 7px;
+      padding: 10px;
+      background: rgba(0,0,0,.16);
+      color: #d5dae3;
+      line-height: 1.55;
+      font-size: 13px;
+    }
+    @media (max-width: 980px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .decision, .workspace { grid-template-columns: 1fr; }
+      .drawer { min-height: 360px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark"></span><span>内部工具平台</span></div>
+      <nav class="nav-section">
+        <div class="nav-title">平台</div>
+        <div class="nav-item active"><span>签约检测</span><span class="nav-count">6</span></div>
+        <div class="nav-item"><span>告警规则</span><span class="nav-count">3</span></div>
+        <div class="nav-item"><span>账号权限</span><span class="nav-count">12</span></div>
+      </nav>
+      <nav class="nav-section">
+        <div class="nav-title">治理</div>
+        <div class="nav-item"><span>运行审计</span><span class="nav-count">41</span></div>
+        <div class="nav-item"><span>工具接入</span><span class="nav-count">1</span></div>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="crumb"><span>工具</span><span>/</span><strong>签约检测工作台</strong></div>
+        <div class="actions"><button>查看审计</button><button class="primary">运行全量检测</button></div>
+      </header>
+      <section class="content">
+        <div class="page-head">
+          <div>
+            <h1>签约检测工作台</h1>
+            <div class="subtitle">首屏只回答一个问题：最近一次全量检测是否影响线上签约，以及下一步该处理哪些产品。</div>
+          </div>
+          <span class="status"><i class="dot warn"></i>2 个产品待处理</span>
+        </div>
+        <section class="decision" aria-label="decision metrics">
+          <div class="metric"><div class="metric-label"><span>最近全量通过率</span><span>12:40</span></div><div class="metric-value">66.7%</div><div class="metric-next">处理 2 个失败产品</div></div>
+          <div class="metric"><div class="metric-label"><span>受影响产品</span><span>最新批次</span></div><div class="metric-value">2</div><div class="metric-next">优先检查支付按钮识别</div></div>
+          <div class="metric"><div class="metric-label"><span>告警送达</span><span>企微</span></div><div class="metric-value">成功</div><div class="metric-next">无需重复通知</div></div>
+          <div class="metric"><div class="metric-label"><span>负责人状态</span><span>SLA</span></div><div class="metric-value">1h</div><div class="metric-next">超过 2h 自动升级</div></div>
+        </section>
+        <section class="workspace">
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">产品检测结果</div>
+              <div class="toolbar"><div class="search">搜索产品、URL、失败原因</div><button>失败优先</button></div>
+            </div>
+            <table>
+              <thead>
+                <tr><th style="width: 22%">产品</th><th style="width: 14%">状态</th><th style="width: 20%">关键原因</th><th style="width: 22%">证据</th><th style="width: 14%">负责人</th><th style="width: 8%">操作</th></tr>
+              </thead>
+              <tbody>
+                <tr class="selected"><td>宜搜星动宸光会员</td><td><span class="status"><i class="dot bad"></i>失败</span></td><td>未识别下单按钮</td><td class="mono">button-scan#184</td><td>运营值班</td><td>查看</td></tr>
+                <tr><td>风行星动宸光会员</td><td><span class="status"><i class="dot"></i>通过</span></td><td>拉起微信签约</td><td class="mono">wx-contract#721</td><td>自动归档</td><td>查看</td></tr>
+                <tr><td>迅雷星动宸光会员</td><td><span class="status"><i class="dot warn"></i>待复核</span></td><td>跳转耗时偏高</td><td class="mono">trace#932</td><td>技术支持</td><td>指派</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <aside class="drawer">
+            <div class="panel-head"><div class="panel-title">失败详情</div><button>创建修复单</button></div>
+            <div class="drawer-body">
+              <div class="kv"><span>产品</span><strong>宜搜星动宸光会员</strong></div>
+              <div class="kv"><span>页面任务</span><span>识别并点击可触发微信签约的主按钮</span></div>
+              <div class="kv"><span>当前判断</span><span class="status"><i class="dot bad"></i>按钮识别失败</span></div>
+              <div class="evidence">页面存在可见下单入口，但自动检测只扫描了固定文案。下一步应按可点击元素、价格区、支付跳转行为组合识别，而不是继续堆关键词。</div>
+              <div class="kv"><span>下一步</span><span>修复按钮识别策略，重新运行单产品检测，告警无需重复发送。</span></div>
+            </div>
+          </aside>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
