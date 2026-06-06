@@ -46,3 +46,5 @@ Excluded:
 - Large project files, generated artifacts, local database dumps, private screenshots, raw rollout logs
 
 Use `memories/self-evolution-ledger.md` as the starting point.
+
+After reinstalling Codex or starting from a blank machine, read `BOOTSTRAP_AFTER_REINSTALL.md` first. It contains the one-message bootstrap prompt and the exact sync commands needed to restore portable Codex evolution memory, skills, and global rules without syncing machine/runtime secrets.
