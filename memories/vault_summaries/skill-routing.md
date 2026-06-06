@@ -41,10 +41,21 @@ The skill gate must leave evidence. A mandatory skill is not considered applied 
 - `caveman*` vs normal communication
 - project-specific tools vs global skills
 
+## Scope Boundary
+
+Project-derived memories and skills are evidence for their project family, not global defaults. Before applying a project-derived rule, identify whether the request is:
+
+- `global`: Codex behavior, skill governance, reporting discipline, verification, routing hygiene;
+- `company/work`: 声之境, unified admin, 每周穿搭, WeChat work context, payment rollout, Feishu operations, customer/complaint/payment data;
+- `personal/reusable`: user style preferences and general engineering habits that do not depend on a company source;
+- `task-local`: facts only relevant to the current workspace.
+
+Company/work memories may be used only when the task names that project/domain/workspace or clearly asks to reuse that company pattern. Generic H5, PRD, frontend, admin, or design tasks must not inherit company-specific constraints unless the user says so.
+
 ## Mandatory Trigger Families
 
 - PRD, product plan, solution plan, backend/admin prototype, grey-release decision system, or proposal + prototype tasks: use `pm-prd` and inspect referenced PRDs, HTML mockups, samples, interface docs, workflows, and confirmed business boundaries before drafting.
-- New self-operated H5 projects under the same unified admin platform, especially when the user says "新H5：项目名", "H5项目：项目名", "项目工厂：项目名", or references 声之境, 多应用管理平台, 统一后台, 每周穿搭, or fixed PRD + 750px H5 HTML + admin HTML outputs: use `app-factory-h5-admin` first, then `pm-prd`, `admin-platform-execution-gate`, and `open-design-design-systems` as required. The skill must produce a source inheritance/context packet before drafting artifacts.
+- Company/work H5 app-factory projects under the existing unified admin platform, especially when the user references 声之境, 多应用管理平台, 统一后台, 每周穿搭, `D:\xiaochengxu\shengzhijing`, or explicitly asks to reuse the company app-factory pattern with 750px H5 HTML + unified-admin HTML + PRD/module map outputs: use `app-factory-h5-admin` first, then `pm-prd`, `admin-platform-execution-gate`, and `open-design-design-systems` as required. The skill must produce a source inheritance/context packet before drafting artifacts. Do not trigger this skill for unrelated personal projects, open-source projects, generic H5 work, or generic landing pages.
 - Public-facing frontend, landing pages, portfolio/brand pages, visually important website redesigns, or image-first website work: use Taste routing. Use `design-taste-frontend` for new public pages, `redesign-existing-projects` for existing UI polish, and `image-to-code` when generated/reference images should drive the implementation.
 - Backend/admin UI, dashboards, internal tools, CRMs, approval systems, payment/customer-data consoles, or admin prototypes: use both `admin-platform-execution-gate` and `open-design-design-systems`, pick the closest reference system first, and do not style from generic adjectives. This is a stop condition: before coding or reporting completion, lock selected reference, page task matrix, primary action, table/form/filter density, status/error/empty/loading states, metric definitions, permission/audit behavior, responsive behavior, and screenshot review plan.
 - Backend/admin UI that has already been rejected twice, or where the user says the whole platform is ugly, structurally wrong, not using the installed skills, or only receiving small patches: trigger a redesign loop breaker. Stop project-code edits, produce a reset packet and an isolated review artifact or explicit before-code plan, then continue only after the platform model, IA, metric logic, interaction state, and visual tokens have been reset. Opening a skill is evidence of routing, not evidence of successful absorption.

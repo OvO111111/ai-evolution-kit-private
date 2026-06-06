@@ -1,13 +1,24 @@
 ---
 name: app-factory-h5-admin
-description: Use when the user asks for a new H5 project, H5 app factory, unified-admin new project, 声之境-style reuse, 每周穿搭-style adaptation, 750px H5 prototype, or a reusable H5 plus admin project package under the existing unified backend.
+description: Company/work-project skill. Use only when the user explicitly references 声之境, 每周穿搭, 多应用管理平台, 统一后台, self-operated company H5 projects under the existing unified backend, or asks to reuse the 声之境 H5/admin project factory. Do not use for unrelated personal projects, open-source projects, generic H5 pages, generic landing pages, or H5 work outside the company unified-admin context.
 ---
 
 # H5 + Unified Admin App Factory
 
-This skill turns one proven project pattern into repeatable new-product delivery. It is not a generic PRD writer. It must inspect the existing reference project and map reusable modules before producing artifacts.
+This is a scoped company/work-project skill. It turns the proven 声之境 + unified-admin project pattern into repeatable company H5 product delivery. It is not a generic H5, PRD, admin, or landing-page workflow. It must inspect the existing reference project and map reusable modules before producing artifacts.
 
-Future projects are H5 only. Do not create non-H5 deliverables unless the user explicitly overrides this.
+Future projects in this company app-factory context are H5 only. Do not create non-H5 deliverables unless the user explicitly overrides this.
+
+## Scope Boundary
+
+Use this skill only when at least one of these is true:
+
+- the user names 声之境, 每周穿搭, 多应用管理平台, 统一后台, or the existing company app factory;
+- the workspace or source paths are under the known company project family, such as `D:\xiaochengxu\shengzhijing`;
+- the user asks for a new self-operated company H5 product that should reuse the existing unified backend/admin platform;
+- the requested deliverables explicitly include the company pattern: 750px H5 prototype plus unified-admin prototype plus PRD/module map derived from 声之境 references.
+
+Do not use this skill for generic H5 pages, personal side projects, external client projects, public landing pages, ordinary frontend implementation, or unrelated product planning. In those cases, use normal product/design/frontend skills and treat this skill as out of scope.
 
 ## Mandatory Companion Skills
 

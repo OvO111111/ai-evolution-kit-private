@@ -6,6 +6,7 @@ This index points to compiled reusable knowledge and lookup locations. It intent
 
 - `source-map.md`: where durable sources live.
 - `query-guide.md`: how to search without stuffing context.
+- `context-scope-boundaries.md`: how to separate global evolution memory from company/work project context.
 - `aliases.md`: Chinese query aliases for likely user wording.
 - `../wiki/projects/project-registry.md`: what projects were done and where to inspect them.
 
@@ -34,6 +35,7 @@ This index points to compiled reusable knowledge and lookup locations. It intent
 - `../wiki/decisions/pm-prd-routing-guard.md`
 - `../wiki/decisions/admin-ui-design-standard.md`
 - `../wiki/decisions/data-analysis-report-standard.md`
+- `context-scope-boundaries.md`
 
 ## Timelines
 

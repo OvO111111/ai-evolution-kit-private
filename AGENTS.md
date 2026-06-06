@@ -12,6 +12,8 @@ Prefer verified local context over assumptions. When a fact can drift, or the us
 
 Keep global instructions short and durable. Put reusable procedures in skills, project-specific rules in project docs, and one-off observations in task notes only when explicitly asked.
 
+Treat exported memories as scoped evidence, not universal behavior. Before applying a memory or project-derived skill, classify it as one of: global Codex evolution, personal reusable preference, company/work project context, or task-local fact. Company/work project memories such as 声之境, unified admin, 每周穿搭, WeChat work context, payment rollout, or Feishu operations must affect only matching company/work tasks or explicit user references, not unrelated personal projects, open-source projects, generic H5 work, or general product/design requests.
+
 Do not stop after completing only a substep. Track the user's original end goal, keep executing the next necessary step, and report intermediate progress as progress, not completion. A task is complete only when the requested outcome is delivered, meaningful verification has run, or a real blocker prevents further safe work.
 
 Ask only for decisions that materially change cost, risk, privacy, account actions, data loss, production state, or product direction. If the next step is a safe, obvious continuation, do it. Do not ask the user to confirm routine sequencing, file inspection, local edits, validation, or export sync.
@@ -61,6 +63,8 @@ Skill triggering belongs in each skill's `SKILL.md` frontmatter: `name` and espe
 For non-trivial tasks, run a quick skill gate before acting: identify the task family, decide whether the available skill metadata clearly matches, and identify required source inspection. If a skill is selected, open its `SKILL.md` or use its concrete tool/script before drafting, coding, or claiming completion. If no skill is selected, say why briefly and continue.
 
 Use the smallest matching skill set. When skills overlap, prefer the one with the narrowest accurate description for the current task. If overlap remains ambiguous, compare the candidates on a small realistic task or mark one as reference-only; do not load every overlapping skill.
+
+Project-derived skills are not global defaults. Use them only when their source project, workspace, business domain, or explicit trigger is present. If a request is generic or belongs to a different project, use normal product/design/code workflows and mention that the project-derived memory is out of scope.
 
 Detailed workflows belong in skills and their references, not in this file. `AGENTS.md` may keep only durable boundaries: inspect existing artifacts before changing them, prefer structured local tools before browser/desktop automation, isolate sensitive data, verify before completion, and report outcomes before implementation details.
 
