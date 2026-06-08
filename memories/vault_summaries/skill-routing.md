@@ -65,6 +65,7 @@ Company/work memories may be used only when the task names that project/domain/w
 - Self-evolution, external lessons, skill/rule updates, or "make Codex smarter" tasks: use `absorb-lessons`, log source + decision + validation.
 - WeChat public article or difficult public/social web sources: route through `web-access`; use `agent-reach` or browser fallback when static fetch fails.
 - WeChat work-group context: use `wechat-work-context`, keep groups isolated, read-only, and cite source messages.
+- Project-level Feishu upload/sync/archive requests, especially natural phrases such as "上传飞书", "同步飞书", "飞书同步", "发布到飞书", "归档到飞书", "把资料放到飞书", or requests to put local PRD/方案/HTML/prototype/screenshots/handoff materials into Feishu: use `feishu-prd-html-sync` first, then `lark-doc`, `lark-drive`, and `lark-shared` as implementation skills. If the request is only a one-off file upload with no project archive/navigation/preview/naming requirement, use `lark-drive` directly.
 - Feishu/Lark tasks: use the relevant Lark skill and edit the real Feishu surface, not a detached substitute.
 
 ## Validation Rule
