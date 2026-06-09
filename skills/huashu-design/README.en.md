@@ -1,4 +1,4 @@
-<sub>🌐 <a href="README.md">中文</a> · <b>English</b></sub>
+<sub><b>🌐 English</b> · <a href="README.md">中文</a></sub>
 
 <div align="center">
 
@@ -7,7 +7,7 @@
 > *"Type. Hit enter. A finished design lands in your lap."*
 > *「打字。回车。一份能交付的设计。」*
 
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Personal%20Use%20Only-orange.svg)](LICENSE)
 [![Agent-Agnostic](https://img.shields.io/badge/Agent-Agnostic-blueviolet)](https://skills.sh)
 [![Skills](https://img.shields.io/badge/skills.sh-Compatible-green)](https://skills.sh)
 
@@ -27,25 +27,21 @@ Not "decent for AI" quality — it looks like a real design team made it. Give t
 npx skills add alchaincyf/huashu-design
 ```
 
-> 📣 **Now MIT-licensed.** As of 2026-05-14 this skill is fully open-source under the [MIT License](LICENSE) — free for personal **and** commercial use, no authorization required. ([what changed](#license))
-
 [See it work](#demo-gallery) · [Install](#install) · [What it does](#what-it-does) · [How it works](#core-mechanics) · [vs. Claude Design](#vs-claude-design)
 
-> 📖 **Note for English readers**: this skill is built by a Chinese-speaking developer. The skill's agent prompts (`SKILL.md`, `references/*.md`) are in Chinese but the agent is bilingual — works fine with English tasks. The demos below are the English parallel versions; the Chinese ones are in the default [Chinese README](README.md).
->
-> 📖 **致中文读者**：这个 skill 由花叔（@AlchainHust）开发。一句话能让 agent 在 3–30 分钟内交付**产品发布动画 / 可点击 App 原型 / 可编辑 PPT / 印刷级信息图**。完整中文介绍见 [README.md](README.md)（默认中文）。
+> 📖 **Note for English readers**: this skill is built by a Chinese-speaking developer. The skill's agent prompts (`SKILL.md`, `references/*.md`) are in Chinese but the agent is bilingual — works fine with English tasks. The demos below are the English parallel versions; the Chinese ones are in the default-named files (see the Chinese [README.md](README.md)).
 
 </div>
 
 ---
 
 <p align="center">
-  <video src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/hero-animation-v10-en.mp4" autoplay muted loop playsinline width="100%">
-    Your browser doesn't support inline video. <a href="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/hero-animation-v10-en.mp4">Download MP4</a>.
+  <video src="demos/hero-animation-v10-en.mp4" autoplay muted loop playsinline width="100%">
+    Your browser doesn't support inline video. <a href="demos/hero-animation-v10-en.mp4">Download MP4</a>.
   </video>
 </p>
 
-<p align="center"><sub>▲ 10-second hero animation showing what huashu-design does (<a href="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/hero-animation-v10-en.mp4">download MP4</a> if autoplay doesn't work)</sub></p>
+<p align="center"><sub>▲ 10-second hero animation showing what huashu-design does (<a href="demos/hero-animation-v10-en.mp4">download MP4</a> if autoplay doesn't work)</sub></p>
 
 ---
 
@@ -65,16 +61,6 @@ Then just talk to Claude Code:
 ```
 
 No buttons, no panels, no Figma plugin. Agent-agnostic — drops into Claude Code, Cursor, Trae, Hermes, OpenClaw, or any markdown-skill-capable agent.
-
----
-
-## Star History
-
-<p align="center">
-  <a href="https://star-history.com/#alchaincyf/huashu-design&Date">
-    <img src="https://api.star-history.com/svg?repos=alchaincyf/huashu-design&type=Date" alt="huashu-design Star History" width="80%">
-  </a>
-</p>
 
 ---
 
@@ -100,55 +86,55 @@ No buttons, no panels, no Figma plugin. Agent-agnostic — drops into Claude Cod
 
 The fallback for vague briefs: pick 3 differentiated directions from 5 schools × 20 philosophies, generate all 3 demos in parallel, let the user choose.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w3-fallback-advisor-en.gif" width="100%"></p>
+<p align="center"><img src="demos/w3-fallback-advisor-en.gif" width="100%"></p>
 
 ### iOS App Prototype
 
 Pixel-accurate iPhone 15 Pro body (Dynamic Island / status bar / Home Indicator) · state-driven multi-screen navigation · real images pulled from Wikimedia/Met/Unsplash · Playwright click tests before delivery.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c1-ios-prototype-en.gif" width="100%"></p>
+<p align="center"><img src="demos/c1-ios-prototype-en.gif" width="100%"></p>
 
 ### Motion Design Engine
 
 Stage + Sprite time-slice model · `useTime` / `useSprite` / `interpolate` / `Easing` — four APIs cover every animation need · one command exports MP4 / GIF / 60fps-interpolated / BGM-scored finals.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c3-motion-design-en.gif" width="100%"></p>
+<p align="center"><img src="demos/c3-motion-design-en.gif" width="100%"></p>
 
 ### HTML Slides → Editable PPTX
 
 HTML decks for browser presentation · `html2pptx.js` reads DOM computed styles and translates each element into real PowerPoint objects · exports are **actual text frames**, not image-bed fakes.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c2-slides-pptx-en.gif" width="100%"></p>
+<p align="center"><img src="demos/c2-slides-pptx-en.gif" width="100%"></p>
 
 ### Tweaks · Live Variation Switching
 
 Colors / typography / information density parameterized · side panel toggle · pure-frontend + `localStorage` persistence · survives reload.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c4-tweaks-en.gif" width="100%"></p>
+<p align="center"><img src="demos/c4-tweaks-en.gif" width="100%"></p>
 
 ### Infographic / Data Viz
 
 Magazine-grade typography · precise CSS Grid columns · `text-wrap: pretty` typographic details · driven by real data · exports to vector PDF / 300dpi PNG / SVG.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c5-infographic-en.gif" width="100%"></p>
+<p align="center"><img src="demos/c5-infographic-en.gif" width="100%"></p>
 
 ### 5-Dimension Expert Critique
 
 Philosophical coherence · visual hierarchy · execution craft · functionality · innovation — each scored 0–10 · radar-chart visualization · outputs Keep / Fix / Quick Wins punch list.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c6-expert-review-en.gif" width="100%"></p>
+<p align="center"><img src="demos/c6-expert-review-en.gif" width="100%"></p>
 
 ### Junior Designer Workflow
 
 No heroic one-shot attempts: start with assumptions + placeholders + reasoning, show it to the user early, then iterate. Fixing a misunderstanding early is 100× cheaper than fixing it late.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w2-junior-designer-en.gif" width="100%"></p>
+<p align="center"><img src="demos/w2-junior-designer-en.gif" width="100%"></p>
 
 ### Core Asset Protocol · 5-step hard process
 
 Mandatory whenever the task involves a specific brand: ask → search → download (three fallback paths) → verify + extract → write `brand-spec.md` covering **logo, product shots, UI screenshots, colors, fonts** — all required assets, not just colors.
 
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w1-brand-protocol-en.gif" width="100%"></p>
+<p align="center"><img src="demos/w1-brand-protocol-en.gif" width="100%"></p>
 
 ---
 
@@ -284,17 +270,23 @@ Thanks to Anthropic for writing the Claude Design prompts so clearly. This kind 
 
 ---
 
-## License
+## License · Usage Rights
 
-**Relicensed to MIT on 2026-05-14.** This skill was previously released under a Personal Use License that restricted commercial use. That restriction is now removed.
+**Personal use is free and unrestricted** — studying, research, creating things for yourself, writing articles, side projects, personal social media. Use it freely, no need to ask.
 
-Under the [MIT License](LICENSE) you are free to **use, modify, and distribute** this skill for any purpose, **including commercial use** — inside companies, in client deliverables, as part of a paid product, anywhere. No prior authorization, no licensing fee, no notification required. Attribution is appreciated but not required.
+**Enterprise / commercial use is restricted** — any company, team, or for-profit organization integrating this skill into a product, external service, or client deliverable **must obtain authorization from Huasheng first**. Including but not limited to:
+- Using the skill as part of internal company tooling
+- Using skill outputs as the primary creative method for external deliverables
+- Building a commercial product on top of the skill
+- Using it in paid client projects
+
+**Commercial licensing contact**: any of the social platforms below.
 
 ---
 
 ## Connect · Huasheng (Huashu)
 
-Huasheng is an AI-native coder, independent developer, and AI content creator. Notable work: Cat Fill Light (App Store Top 1 in Paid category), *A Book on DeepSeek*, Nüwa.skill (GitHub 21k+ stars). Combined 300k+ followers across platforms.
+Huasheng is an AI-native coder, independent developer, and AI content creator. Notable work: Cat Fill Light (App Store Top 1 in Paid category), *A Book on DeepSeek*, Nüwa.skill (GitHub 12k+ stars). Combined 300k+ followers across platforms.
 
 | Platform | Handle | Link |
 |---|---|---|
@@ -306,4 +298,4 @@ Huasheng is an AI-native coder, independent developer, and AI content creator. N
 | Official Site | huasheng.ai | https://www.huasheng.ai/ |
 | Developer Hub | bookai.top | https://bookai.top |
 
-For collaborations or sponsored content, DM on any of the above.
+For commercial licensing, collaborations, or sponsored content, DM on any of the above.
