@@ -1,0 +1,6 @@
+interface:
+  display_name: "Huashu Design"
+  short_description: "Explicit high-fidelity visual design lane"
+  default_prompt: "Use $huashu-design for this explicitly selected high-fidelity visual lane."
+policy:
+  allow_implicit_invocation: true

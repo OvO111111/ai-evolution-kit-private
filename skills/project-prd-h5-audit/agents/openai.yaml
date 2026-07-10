@@ -1,0 +1,6 @@
+interface:
+  display_name: "项目 PRD/H5 检查"
+  short_description: "检查飞书项目归档、PRD、H5 和交付包规则"
+  default_prompt: "Use $project-prd-h5-audit to audit this project PRD, HTML, and Feishu archive before release."
+policy:
+  allow_implicit_invocation: true

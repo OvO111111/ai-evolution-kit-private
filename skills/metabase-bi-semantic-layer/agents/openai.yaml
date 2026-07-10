@@ -1,0 +1,6 @@
+interface:
+  display_name: "Metabase BI Semantic Layer"
+  short_description: "Project-scoped BI modeling and verification"
+  default_prompt: "Use $metabase-bi-semantic-layer only for the matching self-hosted Metabase workspace."
+policy:
+  allow_implicit_invocation: true

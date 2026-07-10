@@ -1,0 +1,6 @@
+interface:
+  display_name: "Redesign Existing Project"
+  short_description: "Source-first redesign without breaking behavior"
+  default_prompt: "Use $redesign-existing-projects to inspect and upgrade the existing product."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Data Analysis Report"
+  short_description: "Decision-grade analysis and report workflow"
+  default_prompt: "Use $data-analysis-report to validate sources, analyze drivers, and produce a reviewable report."
+policy:
+  allow_implicit_invocation: true

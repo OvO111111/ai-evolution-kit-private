@@ -1,0 +1,6 @@
+interface:
+  display_name: "Web Access Router"
+  short_description: "Choose the lowest capable web access path"
+  default_prompt: "Use $web-access to select static fetch, browser, login-state, or site-specific access."
+policy:
+  allow_implicit_invocation: true

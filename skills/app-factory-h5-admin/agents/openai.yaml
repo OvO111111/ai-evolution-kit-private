@@ -1,0 +1,4 @@
+interface:
+  display_name: "Company H5 Admin Factory"
+  short_description: "Build scoped company H5 and unified admin flows"
+  default_prompt: "Use $app-factory-h5-admin for this matching company H5 project and follow its staged workflow."

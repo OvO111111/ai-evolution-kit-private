@@ -1,0 +1,4 @@
+interface:
+  display_name: "Absorb Lessons"
+  short_description: "Turn proven practices into reusable Codex behavior."
+  default_prompt: "Use $absorb-lessons to evaluate this practice and turn the useful parts into reusable guidance."

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Image To Code Fallback"
+  short_description: "Legacy image-first website workflow fallback"
+  default_prompt: "Use $image-to-code-fallback only when the official Product Design image-to-code workflow is unavailable."
+
+policy:
+  allow_implicit_invocation: false

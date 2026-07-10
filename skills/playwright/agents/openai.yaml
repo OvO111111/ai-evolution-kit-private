@@ -1,0 +1,6 @@
+interface:
+  display_name: "Playwright CLI"
+  short_description: "Terminal browser automation and UI verification"
+  default_prompt: "Use $playwright for terminal-driven browser automation or local UI verification."
+policy:
+  allow_implicit_invocation: true

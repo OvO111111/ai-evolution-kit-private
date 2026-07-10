@@ -1,0 +1,65 @@
+---
+name: web-access
+description: Use when a task needs public web research, a supplied URL, a dynamic public page, login-state browser access, or selection among web, browser, platform, and repository tools. This is the access router, not a replacement for official GitHub, Chrome, in-app Browser, Playwright, or Agent Reach skills.
+---
+
+# Web Access Router
+
+Choose the lowest capable route and escalate only after a concrete failure.
+
+## Route Order
+
+1. Use a connected app, structured API, local file, or repository tool when it
+   already owns the source.
+2. For GitHub repositories, PRs, issues, CI, reviews, or publishing, use
+   `github:github` and its focused skills. Do not substitute generic web research.
+3. For simple public pages and current facts, use static search/fetch first.
+4. For an existing logged-in Chrome tab or browser state, use
+   `chrome:control-chrome`.
+5. For a dynamic public page that does not need the user's Chrome state, use
+   `browser:control-in-app-browser`.
+6. For a local dev server, reproducible UI flow, screenshot regression, or terminal
+   browser automation, use `playwright`.
+7. For public social platforms, video subtitles, difficult article sources, or a
+   platform-specific route, use `agent-reach` after normal web access is insufficient.
+8. Use `browser-cdp-fallback` only for a confirmed raw-CDP requirement or after the
+   official browser routes fail for a technical reason.
+9. Use official `computer-use` only for non-browser Windows GUI work, not as a web
+   access shortcut.
+
+## Failure Escalation
+
+Record the actual failure before moving up a layer:
+
+- HTTP or anti-bot response;
+- missing rendered content;
+- login or browser-state requirement;
+- official browser policy block;
+- connector unavailable;
+- site-specific parsing failure.
+
+Do not repeat the same blocked fetch method. Do not claim content was read when only
+a title, guest shell, verification page, or template fallback was obtained.
+
+## Login-State Boundary
+
+Use the user's existing Chrome state only when the request requires it. Do not
+export cookies, tokens, profiles, or credentials. A Chrome policy block is a hard
+stop for that browser path; ask for a safer source instead of bypassing the policy.
+
+## URL-Based Evolution Work
+
+When `absorb-lessons` receives a URL or repository, this router obtains the source.
+`absorb-lessons` still owns overlap analysis, adoption decisions, scoping, and
+validation.
+
+## Completion Evidence
+
+Report which access tier succeeded, what content was actually extracted, and what
+could not be verified. For browser interaction, include DOM, screenshot, tool output,
+or another concrete result appropriate to the task.
+
+## Legacy CDP Reference
+
+Open `references/legacy-cdp-guide.md` only after selecting
+`browser-cdp-fallback`; it is not the default web workflow.

@@ -1,0 +1,27 @@
+# Raw memory/session material is intentionally not part of the portable export.
+memories/extensions/
+sessions/
+rollout_summaries/
+
+# Large or sensitive artifacts should stay local unless deliberately curated.
+memories/ad_hoc_notes/2026-05-29T16-08-00-default-lark-whiteboard-doc.md
+memories/ad_hoc_notes/2026-05-29T16-28-00-lark-whiteboard-hermes-dsl-validation.md
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.mp3
+*.mp4
+*.mov
+*.zip
+*.7z
+__pycache__/
+*.pyc
+
+# Credentials and local runtime state.
+*.env
+*.env.*
+*token*
+*secret*
+*.log

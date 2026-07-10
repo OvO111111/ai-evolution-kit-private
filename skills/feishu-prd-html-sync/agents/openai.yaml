@@ -1,0 +1,6 @@
+interface:
+  display_name: "Feishu PRD HTML Sync"
+  short_description: "Upload or sync existing project PRDs, HTML prototypes,方案 files, screenshots, and handoff materials into Feishu with naming, preview, permission, and navigation checks."
+  default_prompt: "Use $feishu-prd-html-sync when the user says 上传飞书, 同步飞书, 发布到飞书, 归档到飞书, or asks to put project materials into Feishu. Inspect local sources first, then use Lark tools with HERMES_HOME cleared."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "WeChat Pay Product Design"
+  short_description: "Current WeChat Pay product and rollout guidance"
+  default_prompt: "Use $wechat-pay-product-design and verify the current merchant-platform path before advising."
+policy:
+  allow_implicit_invocation: true

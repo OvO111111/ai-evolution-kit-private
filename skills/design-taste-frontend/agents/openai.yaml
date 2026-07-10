@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Taste Frontend"
+  short_description: "Anti-template direction for public web design"
+  default_prompt: "Use $design-taste-frontend to create a source-aware public web direction without generic template patterns."

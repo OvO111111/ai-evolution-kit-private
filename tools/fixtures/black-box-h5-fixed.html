@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>周末活动预约</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f5f7; color: #17191c; }
+    .app { width: min(100%, 520px); min-height: 100vh; margin: 0 auto; padding: 24px; background: #fff; }
+    .screen { display: none; }
+    .screen.active { display: block; }
+    h1 { font-size: 26px; margin: 12px 0; }
+    p { line-height: 1.6; }
+    button { width: 100%; min-height: 48px; margin-top: 16px; border: 0; background: #1463ff; color: #fff; font-size: 16px; }
+    button:disabled { background: #9ba7b8; }
+    .secondary { background: #e8ebf0; color: #23262a; }
+    .option { padding: 16px; border: 1px solid #d8dde5; margin-top: 12px; cursor: pointer; }
+    .option.selected { border-color: #1463ff; background: #edf4ff; }
+    label { display: block; margin-top: 18px; }
+    input { width: 100%; height: 44px; margin-top: 8px; padding: 0 12px; border: 1px solid #bfc6d0; }
+    .message { min-height: 24px; margin-top: 10px; color: #d02b20; }
+    .summary { padding: 16px; margin-top: 18px; background: #f2f6ff; }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section id="home" class="screen active">
+      <small>周末活动</small>
+      <h1>发现附近的新鲜体验</h1>
+      <p>选择活动并填写联系人，即可获得预约结果与活动信息。</p>
+      <button data-go="plans">选择活动</button>
+    </section>
+
+    <section id="plans" class="screen">
+      <h1>选择活动</h1>
+      <div class="option" data-plan="手作体验" tabindex="0">手作体验</div>
+      <div class="option" data-plan="城市漫步" tabindex="0">城市漫步</div>
+      <div id="plan-message" class="message" role="status"></div>
+      <button id="plan-next">下一步</button>
+      <button class="secondary" data-go="home">返回首页</button>
+    </section>
+
+    <section id="form" class="screen">
+      <h1>填写预约信息</h1>
+      <p id="chosen"></p>
+      <label for="name">联系人</label>
+      <input id="name" maxlength="20" autocomplete="name" aria-describedby="name-message">
+      <div id="name-message" class="message" role="status"></div>
+      <button id="submit">提交预约</button>
+      <button class="secondary" data-go="plans">返回选择</button>
+    </section>
+
+    <section id="result" class="screen">
+      <h1>预约成功</h1>
+      <div class="summary">
+        <p><strong>活动：</strong><span id="result-plan"></span></p>
+        <p><strong>联系人：</strong><span id="result-name"></span></p>
+        <p><strong>预约编号：</strong><span id="result-code"></span></p>
+      </div>
+      <p>活动时间和集合地点将在活动开始前一天发送给你。</p>
+      <button id="restart">返回首页</button>
+    </section>
+  </main>
+
+  <script>
+    const screens = [...document.querySelectorAll('.screen')];
+    const state = JSON.parse(sessionStorage.getItem('weekend-booking') || '{}');
+    state.screen = state.screen || 'home';
+    state.plan = state.plan || '';
+    state.name = state.name || '';
+
+    function save() {
+      sessionStorage.setItem('weekend-booking', JSON.stringify(state));
+    }
+
+    function render(historyMode = 'none') {
+      screens.forEach((screen) => screen.classList.toggle('active', screen.id === state.screen));
+      document.querySelectorAll('.option').forEach((option) => {
+        option.classList.toggle('selected', option.dataset.plan === state.plan);
+      });
+      document.querySelector('#chosen').textContent = state.plan ? `已选择：${state.plan}` : '';
+      document.querySelector('#name').value = state.name;
+      if (state.screen === 'result') {
+        document.querySelector('#result-plan').textContent = state.plan;
+        document.querySelector('#result-name').textContent = state.name;
+        document.querySelector('#result-code').textContent = state.code;
+      }
+      if (historyMode === 'push') history.pushState({ screen: state.screen }, '', `#${state.screen}`);
+      if (historyMode === 'replace') history.replaceState({ screen: state.screen }, '', `#${state.screen}`);
+      save();
+    }
+
+    function go(screen) {
+      state.screen = screen;
+      clearMessages();
+      render('push');
+    }
+
+    function clearMessages() {
+      document.querySelector('#plan-message').textContent = '';
+      document.querySelector('#name-message').textContent = '';
+    }
+
+    document.querySelectorAll('[data-go]').forEach((button) => {
+      button.addEventListener('click', () => go(button.dataset.go));
+    });
+
+    document.querySelectorAll('.option').forEach((option) => {
+      const select = () => {
+        state.plan = option.dataset.plan;
+        clearMessages();
+        render();
+      };
+      option.addEventListener('click', select);
+      option.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') select();
+      });
+    });
+
+    document.querySelector('#plan-next').addEventListener('click', () => {
+      if (!state.plan) {
+        document.querySelector('#plan-message').textContent = '请先选择一个活动';
+        return;
+      }
+      go('form');
+    });
+
+    document.querySelector('#name').addEventListener('input', (event) => {
+      state.name = event.target.value;
+      document.querySelector('#name-message').textContent = '';
+      save();
+    });
+
+    document.querySelector('#submit').addEventListener('click', () => {
+      const name = state.name.trim();
+      if (!name) {
+        document.querySelector('#name-message').textContent = '请输入联系人姓名';
+        document.querySelector('#name').focus();
+        return;
+      }
+      if (name.length > 20) {
+        document.querySelector('#name-message').textContent = '联系人姓名不能超过20个字符';
+        return;
+      }
+      const submit = document.querySelector('#submit');
+      submit.disabled = true;
+      submit.textContent = '正在提交...';
+      setTimeout(() => {
+        submit.disabled = false;
+        submit.textContent = '提交预约';
+        state.name = name;
+        state.code = `WK${String(Date.now()).slice(-8)}`;
+        go('result');
+      }, 500);
+    });
+
+    document.querySelector('#restart').addEventListener('click', () => {
+      sessionStorage.removeItem('weekend-booking');
+      state.screen = 'home';
+      state.plan = '';
+      state.name = '';
+      state.code = '';
+      render('push');
+    });
+
+    window.addEventListener('popstate', () => {
+      const target = location.hash.slice(1) || 'home';
+      state.screen = screens.some((screen) => screen.id === target) ? target : 'home';
+      clearMessages();
+      render();
+    });
+
+    const initialHash = location.hash.slice(1);
+    if (screens.some((screen) => screen.id === initialHash)) state.screen = initialHash;
+    if (state.screen === 'result' && (!state.plan || !state.name || !state.code)) state.screen = 'home';
+    render('replace');
+  </script>
+</body>
+</html>

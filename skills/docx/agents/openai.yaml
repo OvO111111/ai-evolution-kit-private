@@ -1,0 +1,6 @@
+interface:
+  display_name: "DOCX Legacy Fallback"
+  short_description: "Low-level Word OOXML repair fallback"
+  default_prompt: "Use $docx-legacy-fallback only after the official Documents route is unavailable."
+policy:
+  allow_implicit_invocation: false

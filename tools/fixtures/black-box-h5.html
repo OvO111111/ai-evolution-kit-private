@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>周末活动预约</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f5f7; color: #17191c; }
+    .app { width: 520px; min-height: 100vh; margin: 0 auto; padding: 24px; background: #fff; }
+    .screen { display: none; }
+    .screen.active { display: block; }
+    h1 { font-size: 26px; margin: 12px 0; }
+    p { line-height: 1.6; }
+    button { width: 100%; min-height: 48px; margin-top: 16px; border: 0; background: #1463ff; color: #fff; font-size: 16px; }
+    .secondary { background: #e8ebf0; color: #23262a; }
+    .option { padding: 16px; border: 1px solid #d8dde5; margin-top: 12px; cursor: pointer; }
+    .option.selected { border-color: #1463ff; background: #edf4ff; }
+    label { display: block; margin-top: 18px; }
+    input { width: 100%; height: 44px; margin-top: 8px; padding: 0 12px; border: 1px solid #bfc6d0; }
+    #message { min-height: 24px; margin-top: 14px; color: #d02b20; }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section id="home" class="screen active">
+      <small>周末活动</small>
+      <h1>发现附近的新鲜体验</h1>
+      <p>完成预约后即可获得活动信息。</p>
+      <button data-go="plans">确定</button>
+    </section>
+
+    <section id="plans" class="screen">
+      <h1>选择活动</h1>
+      <div class="option" data-plan="手作体验">手作体验</div>
+      <div class="option" data-plan="城市漫步">城市漫步</div>
+      <button data-go="form">下一步</button>
+      <button class="secondary" data-go="home">返回</button>
+    </section>
+
+    <section id="form" class="screen">
+      <h1>填写预约信息</h1>
+      <p id="chosen">尚未选择活动</p>
+      <label>联系人<input id="name" autocomplete="off"></label>
+      <button id="submit">提交预约</button>
+      <button class="secondary" data-go="plans">返回</button>
+      <div id="message" role="status"></div>
+    </section>
+
+    <section id="result" class="screen">
+      <h1>已处理</h1>
+      <p>请等待后续通知。</p>
+      <button disabled>继续</button>
+    </section>
+  </main>
+
+  <script>
+    let selectedPlan = '';
+    const screens = [...document.querySelectorAll('.screen')];
+
+    function show(id) {
+      screens.forEach((screen) => screen.classList.toggle('active', screen.id === id));
+      if (id === 'plans') {
+        selectedPlan = '';
+        document.querySelectorAll('.option').forEach((option) => option.classList.remove('selected'));
+      }
+      if (id === 'form') {
+        document.querySelector('#chosen').textContent = selectedPlan || '尚未选择活动';
+      }
+      location.hash = id;
+    }
+
+    document.querySelectorAll('[data-go]').forEach((button) => {
+      button.addEventListener('click', () => show(button.dataset.go));
+    });
+
+    document.querySelectorAll('.option').forEach((option) => {
+      option.addEventListener('click', () => {
+        selectedPlan = option.dataset.plan;
+        document.querySelectorAll('.option').forEach((item) => item.classList.remove('selected'));
+        option.classList.add('selected');
+      });
+    });
+
+    document.querySelector('#submit').addEventListener('click', () => {
+      const name = document.querySelector('#name').value.trim();
+      if (!name || !selectedPlan) {
+        document.querySelector('#message').textContent = '操作失败';
+        return;
+      }
+      show('result');
+    });
+
+    window.addEventListener('hashchange', () => {
+      const id = location.hash.slice(1);
+      if (screens.some((screen) => screen.id === id)) show(id);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Browser CDP Fallback"
+  short_description: "Raw CDP control when official browser routes fail"
+  default_prompt: "Use $browser-cdp-fallback only for a confirmed raw-CDP requirement or official-browser failure."
+policy:
+  allow_implicit_invocation: false

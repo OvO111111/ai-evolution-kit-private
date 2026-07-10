@@ -1,0 +1,6 @@
+interface:
+  display_name: "OCR And Documents"
+  short_description: "Extract text from scans and document images"
+  default_prompt: "Use $ocr-and-documents for scan or image OCR, escalating only when lightweight extraction fails."
+policy:
+  allow_implicit_invocation: true

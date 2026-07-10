@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Reach"
+  short_description: "Read difficult public social and media sources"
+  default_prompt: "Use $agent-reach to research this public platform source with the safest working route."

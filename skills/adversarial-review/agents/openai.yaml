@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adversarial Review"
+  short_description: "Blind product walkthroughs and red-team plan reviews"
+  default_prompt: "Use $adversarial-review to test this live product without reading its code first, or attack this consequential plan before execution."

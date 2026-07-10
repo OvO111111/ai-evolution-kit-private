@@ -1,0 +1,6 @@
+interface:
+  display_name: "WeChat Work Context"
+  short_description: "Read isolated work-group context without sending"
+  default_prompt: "Use $wechat-work-context read-only for the requested allowlisted work group."
+policy:
+  allow_implicit_invocation: true

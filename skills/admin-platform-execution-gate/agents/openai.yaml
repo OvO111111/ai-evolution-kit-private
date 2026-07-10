@@ -1,0 +1,4 @@
+interface:
+  display_name: "Admin Platform Execution Gate"
+  short_description: "Ground admin product structure before implementation"
+  default_prompt: "Use $admin-platform-execution-gate to structure and implement this admin UI request."

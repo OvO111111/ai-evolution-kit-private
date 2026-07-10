@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Product Design Router"
+  short_description: "Route UI work to the right design workflow"
+  default_prompt: "Use $ui-product-design-router to select and execute the right design workflow for this request."

@@ -1,0 +1,6 @@
+interface:
+  display_name: "XLSX Legacy Fallback"
+  short_description: "Low-level Excel repair fallback"
+  default_prompt: "Use $xlsx-legacy-fallback only after the official Spreadsheets route is unavailable."
+policy:
+  allow_implicit_invocation: false

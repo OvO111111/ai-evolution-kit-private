@@ -1,0 +1,6 @@
+interface:
+  display_name: "Video Frames"
+  short_description: "Extract video inspection frames with ffmpeg"
+  default_prompt: "Use $video-frames to extract only the frames or short segments needed for inspection."
+policy:
+  allow_implicit_invocation: true

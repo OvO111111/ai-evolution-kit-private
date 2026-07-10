@@ -1,0 +1,6 @@
+interface:
+  display_name: "Open Design Systems"
+  short_description: "Reference-backed design-system lane"
+  default_prompt: "Use $open-design-design-systems to adapt a real benchmark into a coherent design system."
+policy:
+  allow_implicit_invocation: true
