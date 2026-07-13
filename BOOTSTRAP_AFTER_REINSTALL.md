@@ -29,20 +29,45 @@ git clone https://github.com/OvO111111/ai-evolution-kit-private.git
 powershell -ExecutionPolicy Bypass -File .\scripts\sync-codex-evolution.ps1
 ```
 
-3. Verify:
+3. Verify installation and actual capability. Directory listing is not enough:
 
 ```powershell
 git status --short --branch
 git log -1 --oneline
 Get-ChildItem "$env:USERPROFILE\.codex\skills" -Directory | Select-Object Name
 Get-ChildItem "$env:USERPROFILE\.codex\memories\evolution-kit-private\vault_summaries" -File | Select-Object Name
+powershell -ExecutionPolicy Bypass -File .\tools\verify_portable_capabilities.ps1
 ```
+
+4. Certify live WeChat article reading with a real public article:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\verify_portable_capabilities.ps1 `
+  -WechatUrl "https://mp.weixin.qq.com/s/r5aDx2ntV9E1QWM3oHe3kw"
+```
+
+The recovery is incomplete if the live test does not return `PORTABILITY_CHECK_PASSED`
+and substantive article body extraction. A copied `SKILL.md`, installed command, title,
+guest shell, or verification page is not a pass.
+
+5. If Codex claims a URL or domain was permanently denied, audit user-editable rules:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\audit_access_denials.ps1 `
+  -Domain "mp.weixin.qq.com"
+```
+
+A denial from one task, fetcher, Chrome action, or approval request is scoped to that
+route. It must not be converted into a permanent domain ban. Do not bypass genuine
+product safety policy; use another supported read-only route when only one path is
+blocked.
 
 ## What Gets Restored
 
 - `%USERPROFILE%\.codex\AGENTS.md`
 - `%USERPROFILE%\.codex\skills\*`
 - `%USERPROFILE%\.codex\memories\evolution-kit-private\*`
+- Agent Reach's public WeChat reader checkout and isolated Python environment
 - weekly sync automation can be recreated if the app lost automations
 
 ## What Does Not Get Restored

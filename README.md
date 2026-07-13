@@ -32,7 +32,13 @@ Then read these files in order:
 4. `memories/vault_summaries/skill-routing.md`
 5. `memories/vault_summaries/query-guide.md`
 
-For skill installation, copy only the needed skill directories under `skills/` into the target runtime's skill directory. Do not blindly install every skill if the runtime has a small context window or weak skill routing.
+For a blank Windows Codex installation, use `scripts/sync-codex-evolution.ps1`; it
+installs the curated skills plus the isolated public WeChat reader runtime and runs
+the portability checker. Merely copying skill folders is not a successful restore.
+
+For other AI runtimes, copy only the needed skill directories and adapt the bundled
+scripts to that runtime. Do not claim capability until the target runtime passes an
+equivalent behavioral test.
 
 The bundled sync script installs a curated project-derived skill only when that skill is absent. If the target machine already has a private/full local version, the script preserves it instead of overwriting it with the public placeholder projection.
 
@@ -41,6 +47,7 @@ Included:
 - Durable working preferences and skill rules
 - Reusable skills and helper scripts that do not include secrets
 - Web/WeChat article access workflow, design/product skills, browser capability notes
+- Deterministic WeChat reader setup, debug-HTML recovery, access-denial audit, and live portability test
 
 Excluded:
 - WeChat work-group message bodies, search results, local indexes, and allowlists

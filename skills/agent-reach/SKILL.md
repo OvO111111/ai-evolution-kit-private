@@ -50,14 +50,21 @@ Follow the escalation ladder in `web-access`:
 1. static fetch/search;
 2. rendered built-in browser;
 3. the user's Chrome when login state is genuinely required;
-4. Agent Reach's WeChat article helper when the browser paths fail and the helper is installed;
-5. extract from saved debug HTML if capture succeeds but post-processing fails.
+4. the bundled deterministic WeChat wrapper when browser paths fail;
+5. automatic debug-HTML recovery when capture succeeds but post-processing fails.
 
-Typical helper path:
+Do not treat the presence of this `SKILL.md` as proof that the reader runtime is
+installed. On a new machine, run setup once, then call the wrapper:
 
-```bash
-python "$HOME/.agent-reach/tools/wechat-article-for-ai/main.py" "https://mp.weixin.qq.com/s/ARTICLE_ID"
+```powershell
+& "$env:USERPROFILE\.codex\skills\agent-reach\scripts\setup_wechat_reader.ps1"
+$python = "$env:USERPROFILE\.agent-reach\venvs\wechat-article\Scripts\python.exe"
+& $python "$env:USERPROFILE\.codex\skills\agent-reach\scripts\read_wechat_article.py" "https://mp.weixin.qq.com/s/ARTICLE_ID"
 ```
+
+The setup pins the tested upstream revision and Python dependency versions, then
+creates a real Camoufox page. Package installation or import success alone is not
+a readiness check.
 
 Do not claim the article was read unless title/body extraction or rendered-page inspection succeeded.
 
@@ -68,6 +75,10 @@ Use a normal HTTP client or feed parser. Preserve source URLs and publication da
 ## Failure Handling
 
 When a channel fails, record the failure mode and move up one access layer. Do not repeat the same blocked request. Useful intermediate HTML, screenshots, subtitles, and API responses should be inspected before recapturing.
+
+Tool refusal is scoped to the attempted tool/action. Do not convert a single
+denial into a permanent URL or domain ban. Use another supported read-only route,
+or report that all installed routes were actually tested and failed.
 
 If a route requires login cookies, account authorization, posting, commenting, following, liking, publishing, or messaging, stop and use a supported logged-in browser/connector or request the exact authorization needed. Public research does not authorize account actions.
 

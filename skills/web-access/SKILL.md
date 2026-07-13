@@ -41,11 +41,28 @@ Record the actual failure before moving up a layer:
 Do not repeat the same blocked fetch method. Do not claim content was read when only
 a title, guest shell, verification page, or template fallback was obtained.
 
+Treat denials and failures as **route-scoped**, not URL- or domain-scoped. A static
+fetch denial blocks that fetch method; a Chrome policy denial blocks that Chrome
+action. Neither proves that the public URL is permanently unavailable. Continue
+through another supported read-only route when the user's goal remains allowed.
+Never invent or preserve a "permanent domain ban" from one failed attempt.
+
+If Codex reports a persistent denial, identify its source before concluding:
+
+- current-thread refusal or stale tool state: use a fresh task and re-run the router;
+- user-editable local rule: audit it with `tools/audit_access_denials.ps1` and ask
+  before removing or broadening the rule;
+- product or safety policy: do not bypass it, but continue with other explicitly
+  available supported tools when the policy only blocks one route.
+
 ## Login-State Boundary
 
 Use the user's existing Chrome state only when the request requires it. Do not
-export cookies, tokens, profiles, or credentials. A Chrome policy block is a hard
-stop for that browser path; ask for a safer source instead of bypassing the policy.
+export cookies, tokens, profiles, or credentials. A Chrome policy block ends that
+Chrome action only. For a public article, continue with the in-app browser or the
+site-specific public reader. For private content that genuinely requires the
+blocked login state, report the exact limitation instead of pretending another
+route read the same private content.
 
 ## URL-Based Evolution Work
 

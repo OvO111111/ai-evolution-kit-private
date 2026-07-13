@@ -45,7 +45,7 @@ For tasks involving existing artifacts, source inspection is part of the gate. I
 - Backend/admin UI, dashboards, internal tools, CRMs, approval systems, payment/customer-data consoles, or admin prototypes: use `open-design-design-systems`, pick the closest reference system first, and do not style from generic adjectives.
 - Data analysis reports, Excel/CSV analysis, KPI/trend/comparison/cohort/root-cause reports, visualized HTML reports, Word/PPT analysis reports, or "analysis is not professional enough" feedback: use `data-analysis-report` first, then supporting file-format skills such as `xlsx`, `docx`, `pptx`, or `ocr-and-documents`.
 - Self-evolution, external lessons, skill/rule updates, or "make Codex smarter" tasks: use `absorb-lessons`, log source + decision + validation.
-- WeChat public article or difficult public/social web sources: route through `web-access`; use `agent-reach` or browser fallback when static fetch fails.
+- WeChat public article or difficult public/social web sources: route through `web-access`; use browser or the executable `agent-reach` Camoufox wrapper when static fetch fails. Require title plus substantive body extraction. A denied fetch/browser action is route-scoped and must not become a permanent URL/domain ban.
 - WeChat work-group context: use `wechat-work-context`, keep groups isolated, read-only, and cite source messages.
 - Feishu/Lark tasks: use the relevant Lark skill and edit the real Feishu surface, not a detached substitute.
 

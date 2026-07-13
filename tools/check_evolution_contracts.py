@@ -158,6 +158,20 @@ def main() -> int:
         "web-access does not distinguish GitHub, in-app Browser, Playwright, and CDP fallback",
     )
     require(
+        "web_denials_are_route_scoped",
+        "route-scoped" in texts["web_access"]
+        and "permanent domain ban" in texts["web_access"]
+        and "site-specific public reader" in texts["web_access"],
+        "web-access can still turn one denied tool path into a permanent URL/domain failure",
+    )
+    require(
+        "wechat_reader_is_executable",
+        "setup_wechat_reader.ps1" in texts["agent_reach"]
+        and "read_wechat_article.py" in texts["agent_reach"]
+        and "debug-HTML recovery" in texts["agent_reach"],
+        "agent-reach documents a WeChat route but does not own executable setup and recovery",
+    )
+    require(
         "dashboard_defers_to_data_analytics",
         "official Data Analytics" in texts["data_report"]
         and "does not own dashboard construction" in texts["data_report"]
@@ -314,6 +328,29 @@ def main() -> int:
         and "curatedProjectionSkills" in read(sync_script)
         and "Preserved existing private-context skills" in read(sync_script),
         "restore script can still overwrite a private local skill with a public projection",
+    )
+    portability_check = EXPORT_ROOT / "tools" / "verify_portable_capabilities.ps1"
+    denial_audit = EXPORT_ROOT / "tools" / "audit_access_denials.ps1"
+    wechat_setup = EXPORT_ROOT / "skills" / "agent-reach" / "scripts" / "setup_wechat_reader.ps1"
+    wechat_reader = EXPORT_ROOT / "skills" / "agent-reach" / "scripts" / "read_wechat_article.py"
+    require(
+        "restore_installs_and_tests_wechat_reader",
+        all(path.exists() for path in (portability_check, denial_audit, wechat_setup, wechat_reader))
+        and "setup_wechat_reader.ps1" in read(sync_script)
+        and "verify_portable_capabilities.ps1" in read(sync_script)
+        and "Live WeChat body extraction" in read(portability_check),
+        "portable restore can still report success without installing or behaviorally testing the WeChat reader",
+    )
+    wechat_portability_report = (
+        EXPORT_ROOT / "memories" / "vault_summaries" / "wechat-access-portability-2026-07-13.md"
+    )
+    require(
+        "wechat_portability_failure_is_recorded",
+        wechat_portability_report.exists()
+        and "First fresh-install test failed" in read(wechat_portability_report)
+        and "14,507-character body" in read(wechat_portability_report)
+        and "Product safety policy is not bypassed" in read(wechat_portability_report),
+        "WeChat portability correction omits failing baseline, live proof, or policy boundary",
     )
     safety_checker = EXPORT_ROOT / "tools" / "check_export_safety.py"
     require(

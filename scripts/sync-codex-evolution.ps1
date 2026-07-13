@@ -1,6 +1,7 @@
 param(
     [string]$RepoPath = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "..")).Path,
-    [string]$CodexHome = (Join-Path $env:USERPROFILE ".codex")
+    [string]$CodexHome = (Join-Path $env:USERPROFILE ".codex"),
+    [switch]$SkipToolSetup
 )
 
 $ErrorActionPreference = "Stop"
@@ -69,6 +70,26 @@ function Install-EvolutionKit {
 
     Get-ChildItem -LiteralPath $memoriesTarget -Force | Remove-Item -Recurse -Force
     Copy-Item -Path (Join-Path $memoriesSource "*") -Destination $memoriesTarget -Recurse -Force
+
+    if (-not $SkipToolSetup) {
+        $wechatSetup = Join-Path $skillsTarget "agent-reach\scripts\setup_wechat_reader.ps1"
+        if (-not (Test-Path -LiteralPath $wechatSetup)) {
+            throw "Missing WeChat reader setup after skill sync: $wechatSetup"
+        }
+        & $wechatSetup
+        if ($LASTEXITCODE -ne 0) {
+            throw "WeChat reader setup failed with exit code $LASTEXITCODE"
+        }
+    }
+
+    $portabilityCheck = Join-Path $RepoPath "tools\verify_portable_capabilities.ps1"
+    if (-not (Test-Path -LiteralPath $portabilityCheck)) {
+        throw "Missing portability checker: $portabilityCheck"
+    }
+    & $portabilityCheck -RepoPath $RepoPath -CodexHome $CodexHome
+    if ($LASTEXITCODE -ne 0) {
+        throw "Portable capability verification failed with exit code $LASTEXITCODE"
+    }
 }
 
 if (-not (Test-Path -LiteralPath (Join-Path $RepoPath ".git"))) {

@@ -8,16 +8,22 @@ WeChat public articles are often readable in a real browser but blocked for stat
 
 ## Preferred Ladder
 
-1. If a quick summary is enough, try web search or Exa-style discovery first.
-2. If the user needs the article body, use the local Camoufox-based helper:
+1. Try static search/fetch once when a snippet or discovery result may be enough.
+2. If the body is missing, use the official in-app Browser, or the user's Chrome
+   when the existing tab/login state is genuinely required.
+3. For a public article body, use the deterministic Camoufox wrapper. If the
+   reader is missing, run its setup script instead of claiming the skill is ready:
 
 ```powershell
+$setup = "$env:USERPROFILE\.codex\skills\agent-reach\scripts\setup_wechat_reader.ps1"
+& $setup
 $wechatPython = "$env:USERPROFILE\.agent-reach\venvs\wechat-article\Scripts\python.exe"
-$wechatTool = "$env:USERPROFILE\.agent-reach\tools\wechat-article-for-ai\main.py"
-& $wechatPython $wechatTool "<URL>"
+$reader = "$env:USERPROFILE\.codex\skills\agent-reach\scripts\read_wechat_article.py"
+& $wechatPython $reader "<URL>"
 ```
 
-3. If the helper saves debug HTML but parser post-processing fails, extract manually from:
+4. The wrapper automatically recovers from saved debug HTML when browser capture
+   succeeds but upstream post-processing fails. Manual inspection remains available at:
 
 ```text
 $env:USERPROFILE\.agent-reach\tools\wechat-article-for-ai\output\debug\
@@ -40,3 +46,8 @@ Extract visible text from `p`, headings, `li`, `blockquote`, and `pre`; preserve
 ## Safety
 
 Do not request or store user cookies. If a browser login or verification is needed, ask the user to complete it in their own browser and continue from rendered/debug output.
+
+A refusal from one fetcher or browser action is not a permanent ban on
+`mp.weixin.qq.com`. Record the failed route, do not repeat it, and continue to the
+next supported read-only route. Success requires a real title plus substantive
+body text, not an environment-abnormal page.
