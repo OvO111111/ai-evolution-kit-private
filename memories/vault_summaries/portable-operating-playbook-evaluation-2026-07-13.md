@@ -35,17 +35,27 @@ escalation, or denial scope.
 - Export safety scan: 297 files scanned, 0 findings.
 - Every skill path referenced by the core capability index exists: 9/9.
 - Export and global `absorb-lessons` copies both passed skill validation.
-- Independent fresh-model blind test: attempted through the official npm Codex
-  CLI because the packaged desktop `codex.exe` returned `Access is denied`; npm
-  retrieval produced no output and was terminated after approximately 80 seconds.
-  This evidence tier remains `unverified` and is not reported as a pass.
+- Independent no-code blind test: passed through a separate Hermes process with
+  `--ignore-rules`. It was instructed to read only `AI_OPERATING_PLAYBOOK.md`,
+  execute no repository script, and inspect no other file. Given a natural WeChat
+  request, static `环境异常`, Chrome policy denial, and one remaining site-specific
+  public reader, it returned:
+  - `task_triggered=public-wechat-article-reading`
+  - `next_action=use-site-specific-public-reader`
+  - `permanent_domain_ban=false`
+  - `success_condition=actual-article-body-extracted-and-inspected`
+  - `ask_user_now=false`
+- The packaged desktop `codex.exe` route returned `Access is denied`, and an npm
+  Codex retrieval attempt stalled and was terminated. Those failed test routes
+  were not counted as passes; the independent Hermes result supplied the missing
+  comprehension evidence.
 - Prior live article extraction evidence remains separate: a fresh isolated reader
   environment extracted a 14,507-character body. That proves the optional helper,
   not by itself the no-code AI comprehension layer.
 
 ## Residual Risk
 
-The playbook is now understandable without local code, but a genuinely independent
-AI behavior test still needs to be run from another task/runtime that can read the
-repository. The structural and live-tool evidence must not be relabeled as that
-independent model test.
+The playbook passed one independent AI comprehension test without running local
+repository code. This does not prove that every AI product will automatically read
+the repository or expose a working web tool; each target still needs the playbook
+loaded once and an equivalent read-only access route.
