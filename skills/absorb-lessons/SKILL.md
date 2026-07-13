@@ -18,13 +18,21 @@ Use this skill to convert raw advice into durable, scoped operating guidance. Th
 7. **Separate stable rules from observations.** Put durable behavior in a skill. Put uncertain, dated, or project-specific observations in memory only when the user explicitly asks for a memory update.
 8. **Red-team consequential adoption.** Before changing global defaults, broad routing, memory boundaries, or repeated workflows, use `adversarial-review` to test whether the diagnosed problem is real, whether a smaller fix exists, what context or compatibility cost the rule adds, and which minimum experiment could disprove it.
 9. **Create a blind before/after test.** Record the baseline, make the smallest coherent change, then run a fresh-session route or artifact test. The evaluator receives the natural user request and acceptance rubric, not the intended answer, suspected defect, changed files, or author reasoning. A validator or route-selection pass alone is not behavioral proof.
-10. **Produce a change manifest.** Before completion, list every skill, rule, automation, test, or tool changed; what changed; why; test result; and anything deliberately left unchanged.
+10. **Write the portable operating card.** When the adopted result gives an AI a
+    reusable capability, update `AI_OPERATING_PLAYBOOK.md` or a linked focused
+    playbook. Include natural triggers, required outcome, route ladder, failure
+    semantics, scope, equivalent-tool guidance, and realistic validation. Use
+    `references/portable-capability-card.md` as the template. Scripts and package
+    names are optional implementations, not the transferable behavior.
+11. **Produce a change manifest.** Before completion, list every skill, rule, automation, test, or tool changed; what changed; why; test result; and anything deliberately left unchanged.
 
 ## Acceptance Criteria
 
 An absorbed lesson is good only when it is:
 
 - **Actionable:** A future Codex instance can decide when and how to use it.
+- **Portable:** Another AI can preserve the behavior with equivalent tools without
+  depending on this machine's scripts, package layout, or login state.
 - **Scoped:** It names the situations where it applies and where it should not slow work down.
 - **Non-duplicative:** It improves existing behavior instead of restating broad virtues.
 - **Verifiable:** It includes success checks, examples of better behavior, or review criteria.
@@ -41,6 +49,8 @@ Read `references/principles.md` when the task asks to improve Codex behavior, cr
 - Prefer editing this skill over creating many overlapping behavior skills.
 - Keep `SKILL.md` focused on the absorption process.
 - Put detailed adopted principles, source summaries, and examples in `references/`.
+- Do not mark a reusable capability fully adopted when only the ledger, local
+  installation, or implementation script exists; publish the operating card first.
 - Do not write to global memory unless the user directly asks to update memory.
 - Do not claim a rule is globally active until the file exists under the global skills directory and validation passes. Tell the user that restarting Codex may be required for new skills to be discovered.
 - Keep route selection, static contract validation, artifact quality, and live behavior as separate evidence tiers. Never report a route test as proof that the resulting work is good.

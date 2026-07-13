@@ -352,6 +352,33 @@ def main() -> int:
         and "Product safety policy is not bypassed" in read(wechat_portability_report),
         "WeChat portability correction omits failing baseline, live proof, or policy boundary",
     )
+    operating_playbook = EXPORT_ROOT / "AI_OPERATING_PLAYBOOK.md"
+    source_ledger = EXPORT_ROOT / "memories" / "self-evolution-ledger.md"
+    bootstrap = EXPORT_ROOT / "BOOTSTRAP_AFTER_REINSTALL.md"
+    readme = EXPORT_ROOT / "README.md"
+    require(
+        "portable_behavior_precedes_implementation",
+        operating_playbook.exists()
+        and all(
+            token in read(operating_playbook)
+            for token in (
+                "No bundled script is required",
+                "Capability Card: Public WeChat Article Reading",
+                "Natural wording",
+                "substantive article body text",
+                "Route Ladder",
+                "A Chrome/browser policy denial ends only that browser action or route",
+                "equivalent target-runtime tools",
+                "Evolution Admission Rule",
+            )
+        )
+        and "source and decision audit, not the primary operating manual" in read(source_ledger)
+        and "No-Code Behavior Restore" in read(bootstrap)
+        and read(readme).find("AI_OPERATING_PLAYBOOK.md")
+        < read(readme).find("memories/self-evolution-ledger.md")
+        and "Write the portable operating card" in texts["absorb_lessons"],
+        "export still depends on implementation scripts or leaves the ledger as the operating entry point",
+    )
     safety_checker = EXPORT_ROOT / "tools" / "check_export_safety.py"
     require(
         "export_safety_checker_exists",

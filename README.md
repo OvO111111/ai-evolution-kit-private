@@ -26,11 +26,18 @@ cd ai-evolution-kit-private
 
 Then read these files in order:
 
-1. `AGENTS.md`
-2. `memories/self-evolution-ledger.md`
+1. `AI_OPERATING_PLAYBOOK.md`
+2. `AGENTS.md`
 3. `memories/vault_summaries/working-habits.md`
 4. `memories/vault_summaries/skill-routing.md`
-5. `memories/vault_summaries/query-guide.md`
+5. `memories/self-evolution-ledger.md`
+6. `memories/vault_summaries/query-guide.md`
+
+`AI_OPERATING_PLAYBOOK.md` is the no-code behavior-transfer entry point. Another
+AI can follow it with equivalent native tools; it does not need to run this repo's
+scripts merely to understand how to read a WeChat article or handle route failure.
+The source ledger explains why decisions were made, not how to operate every
+capability.
 
 For a blank Windows Codex installation, use `scripts/sync-codex-evolution.ps1`; it
 installs the curated skills plus the isolated public WeChat reader runtime and runs
@@ -55,6 +62,7 @@ Excluded:
 - Customer, payment, refund, complaint, merchant, and business-private data
 - Large project files, generated artifacts, local database dumps, private screenshots, raw rollout logs
 
-Use `memories/self-evolution-ledger.md` as the starting point.
+Use `AI_OPERATING_PLAYBOOK.md` as the behavioral starting point and
+`memories/self-evolution-ledger.md` as the source/decision audit.
 
 After reinstalling Codex or starting from a blank machine, read `BOOTSTRAP_AFTER_REINSTALL.md` first. It contains the one-message bootstrap prompt and the exact sync commands needed to restore portable Codex evolution memory, skills, and global rules without syncing machine/runtime secrets.

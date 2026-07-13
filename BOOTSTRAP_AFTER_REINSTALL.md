@@ -10,12 +10,29 @@ Send this to the fresh Codex instance:
 请从我的公开脱敏进化仓库恢复 Codex 进化资料：
 https://github.com/OvO111111/ai-evolution-kit-private
 
-克隆或更新仓库，先读 README.md、AGENTS.md、BOOTSTRAP_AFTER_REINSTALL.md，再按文档运行同步脚本。完成后告诉我当前 commit、安装结果和是否有阻塞。
+克隆或更新仓库，先读 AI_OPERATING_PLAYBOOK.md、README.md、AGENTS.md、BOOTSTRAP_AFTER_REINSTALL.md。先恢复其中的工作方式；只有本机 Codex 需要安装仓库内 skills/辅助工具时才运行同步脚本。完成后告诉我当前 commit、行为规则是否已加载、工具安装结果（如有）和阻塞。
 ```
+
+## No-Code Behavior Restore
+
+If the target AI can read this repository but should not execute local code, it
+only needs to read:
+
+1. `AI_OPERATING_PLAYBOOK.md`
+2. `AGENTS.md`
+3. the matching `skills/*/SKILL.md` when a task requires more detail
+4. `memories/self-evolution-ledger.md` only when provenance or a prior decision is
+   relevant
+
+This is enough to transfer the WeChat article route ladder, success criteria, and
+failure semantics. The target AI should use its own equivalent browser, web,
+connector, or document tools. Scripts below are optional local capability helpers,
+not the meaning of the evolution ledger.
 
 ## Expected Recovery Steps
 
-The new Codex should:
+For a local Codex installation that should also receive the bundled skill files and
+deterministic helpers, the new Codex should:
 
 1. Clone the public redacted repo:
 

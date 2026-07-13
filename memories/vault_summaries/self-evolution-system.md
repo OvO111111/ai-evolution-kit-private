@@ -14,6 +14,16 @@ status: active
 
 Capture external ideas, user corrections, repo evaluations, skills, and workflow failures as durable operating improvements. Do not treat a new project or article as automatically correct.
 
+The system has two different outputs:
+
+- `AI_OPERATING_PLAYBOOK.md` transfers reusable behavior to another AI without
+  requiring local code.
+- `memories/self-evolution-ledger.md` preserves source provenance, evaluation,
+  adoption decisions, and evidence.
+
+A script, installed package, ledger row, or local-only success does not by itself
+make a capability portable.
+
 ## Intake Rule
 
 Every self-evolution source should be recorded with:
@@ -26,15 +36,24 @@ Every self-evolution source should be recorded with:
 - rejected or deferred parts
 - output location
 - validation state
+- portable operating card when a reusable capability was adopted
 
 ## Adoption Policy
 
 - Absorb principles, not whole projects.
 - Prefer small durable rules over large brittle frameworks.
 - Treat new skills/plugins as coverage increases, not intelligence increases.
-- A claimed improvement only counts after a realistic validation prompt, command/tool validation, or a clear reason validation was skipped.
+- A claimed improvement only counts after a realistic validation prompt,
+  command/tool validation, or a clear reason validation was skipped.
+- A reusable capability remains partial until its card names natural triggers,
+  success criteria, route escalation, failure semantics, equivalent tools, scope,
+  and validation evidence.
 
 ## Current Ledger
+
+Primary behavior-transfer entry:
+
+`AI_OPERATING_PLAYBOOK.md`
 
 Primary source:
 
