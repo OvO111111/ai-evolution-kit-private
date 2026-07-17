@@ -410,7 +410,7 @@ def build_report(results: list[dict[str, Any]], model: str, codex: Path) -> dict
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "model": model,
-        "codex": str(codex),
+        "codex": f"codex.exe@{codex.parent.name}",
         "cases": len(ordered),
         "passed": sum(1 for row in ordered if row.get("passed")),
         "failed": sum(1 for row in ordered if not row.get("passed")),

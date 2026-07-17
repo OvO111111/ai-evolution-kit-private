@@ -457,6 +457,12 @@ def main() -> int:
         and '"case_completed"' in read(route_eval),
         "route regression can still wait on stdin or lose completed cases during a later timeout",
     )
+    require(
+        "route_eval_report_is_portable",
+        '"codex": f"codex.exe@{codex.parent.name}"' in read(route_eval)
+        and '"codex": str(codex)' not in read(route_eval),
+        "route regression reports can still leak a machine-specific executable path and block export sync",
+    )
     audit_script = EXPORT_ROOT / "tools" / "audit_codex_system.py"
     require(
         "system_audit_classifies_expected_duplicates",
