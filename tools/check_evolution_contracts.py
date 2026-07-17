@@ -49,7 +49,11 @@ def main() -> int:
         "admin_gate": CODEX_HOME / "skills" / "admin-platform-execution-gate" / "SKILL.md",
         "pm_prd": CODEX_HOME / "skills" / "pm-prd" / "SKILL.md",
         "agent_reach": CODEX_HOME / "skills" / "agent-reach" / "SKILL.md",
-        "agent_reach_reference": AGENTS_HOME / "skills" / "agent-reach" / "SKILL.md",
+        "agent_reach_reference": CODEX_HOME
+        / "skill-archive"
+        / "2026-07-15-zero-evidence"
+        / "agent-reach-upstream-reference"
+        / "SKILL.md",
         "image_fallback": CODEX_HOME / "skills" / "image-to-code" / "SKILL.md",
         "pdf_fallback": CODEX_HOME / "skills" / "pdf" / "SKILL.md",
         "xlsx_fallback": CODEX_HOME / "skills" / "xlsx" / "SKILL.md",
@@ -65,6 +69,7 @@ def main() -> int:
         "project_h5_audit": CODEX_HOME / "skills" / "project-prd-h5-audit" / "SKILL.md",
         "huashu": CODEX_HOME / "skills" / "huashu-design" / "SKILL.md",
         "open_design_systems": CODEX_HOME / "skills" / "open-design-design-systems" / "SKILL.md",
+        "design_taste": CODEX_HOME / "skills" / "design-taste-frontend" / "SKILL.md",
     }
     for label, path in paths.items():
         if not path.exists():
@@ -90,12 +95,16 @@ def main() -> int:
         "app-factory still behaves as a global H5 default",
     )
     require(
-        "company_h5_sequence",
+        "company_h5_conditional_sequence",
         texts["app_factory"].find("Build the user-facing H5 prototype")
         < texts["app_factory"].find("blind black-box H5 walkthrough")
-        < texts["app_factory"].find("define and build the admin prototype")
-        < texts["app_factory"].find("write the PRD"),
-        "expected H5 -> black-box -> admin -> PRD ordering is missing",
+        < texts["app_factory"].find("Pause at the H5 review checkpoint")
+        < texts["app_factory"].find("write the H5 PRD")
+        and "Default scope is the user-facing H5 and its PRD" in texts["app_factory"]
+        and "Enter this stage only when" in texts["app_factory"]
+        and "If admin UI was explicitly requested, finalize the combined PRD after both H5 and admin confirmation"
+        in texts["app_factory"],
+        "expected H5 -> black-box -> H5 PRD default plus explicit-admin branch is missing",
     )
     require(
         "generic_h5_uses_product_design",
@@ -118,11 +127,12 @@ def main() -> int:
         "pm-prd still creates one-question turns",
     )
     require(
-        "agent_reach_reference_is_inert",
+        "agent_reach_reference_is_archived",
         frontmatter(paths["agent_reach_reference"]).get("name") == "agent-reach-upstream-reference"
         and "allow_implicit_invocation: false"
-        in read(paths["agent_reach_reference"].parent / "agents" / "openai.yaml"),
-        "upstream Agent Reach copy can still compete as a default router",
+        in read(paths["agent_reach_reference"].parent / "agents" / "openai.yaml")
+        and not (AGENTS_HOME / "skills" / "agent-reach").exists(),
+        "upstream Agent Reach copy is missing from the archive or can still compete as a default router",
     )
     require(
         "legacy_names_are_narrow",
@@ -172,11 +182,12 @@ def main() -> int:
         "agent-reach documents a WeChat route but does not own executable setup and recovery",
     )
     require(
-        "dashboard_defers_to_data_analytics",
-        "official Data Analytics" in texts["data_report"]
-        and "does not own dashboard construction" in texts["data_report"]
-        and "must not suppress the dashboard workflow" in texts["data_report"],
-        "data-analysis-report can still swallow dashboard construction",
+        "dashboard_prefers_official_with_labeled_fallback",
+        "try official Data Analytics `index`" in texts["data_report"]
+        and "Dashboard Degraded Fallback" in texts["data_report"]
+        and "self-contained portable HTML dashboard" in texts["data_report"]
+        and "must not suppress a callable dashboard workflow" in texts["data_report"],
+        "dashboard fallback is missing, unlabeled, or can suppress callable official Data Analytics",
     )
     require(
         "playwright_is_not_generic_browser",
@@ -194,6 +205,8 @@ def main() -> int:
         "adversarial_modes_are_scoped",
         "Black-Box Walkthrough" in texts["adversarial_review"]
         and "Red-Team Plan Review" in texts["adversarial_review"]
+        and "开启对抗式审查" in texts["adversarial_review"]
+        and "Separate known evidence, assumptions, and unknowns" in texts["adversarial_review"]
         and "Do not manufacture objections to routine" in texts["adversarial_review"]
         and "route selection, static validation, artifact quality, and live behavior"
         in texts["adversarial_review"],
@@ -218,6 +231,23 @@ def main() -> int:
         "Do not select for generic product planning" in texts["huashu"]
         and "Do not select merely because a UI should be beautiful" in texts["open_design_systems"],
         "Huashu or Open Design can still consume generic design requests",
+    )
+    require(
+        "design_lanes_require_real_artifacts",
+        "functional controls under the same brief" in texts["router"]
+        and "Method-description cards" in texts["router"]
+        and "real task surfaces" in texts["router"],
+        "multi-lane design can still pass from method cards, labels, or recolors",
+    )
+    require(
+        "external_skill_sources_are_trackable",
+        "https://github.com/bzd6661/wechat-article-for-ai" in texts["agent_reach"]
+        and "upstream_tracking: head" in texts["agent_reach"]
+        and "https://github.com/nexu-io/open-design" in texts["open_design_systems"]
+        and "upstream_tracking: tag" in texts["open_design_systems"]
+        and "https://github.com/Leonxlnx/taste-skill" in texts["design_taste"]
+        and "upstream_policy: review_only" in texts["design_taste"],
+        "active external adaptations can still disappear from update checks",
     )
 
     local_names: dict[str, list[str]] = defaultdict(list)
@@ -255,8 +285,22 @@ def main() -> int:
 
     agents_path = CODEX_HOME / "AGENTS.md"
     if agents_path.exists():
-        agents_lines = read(agents_path).count("\n") + 1
-        require("global_agents_budget", agents_lines <= 260, f"AGENTS.md is {agents_lines} lines")
+        agents_text = read(agents_path)
+        agents_lines = agents_text.count("\n") + 1
+        require(
+            "global_agents_budget",
+            agents_lines <= 40 and len(agents_text.encode("utf-8")) <= 4000,
+            f"AGENTS.md is {agents_lines} lines and {len(agents_text.encode('utf-8'))} bytes",
+        )
+        require(
+            "global_reasoning_and_commentary_are_scoped",
+            "ambiguous, novel, or consequential decisions" in agents_text
+            and "skip this overhead for routine reversible work" in agents_text
+            and "Outside required progress updates" in agents_text
+            and "do not narrate routine tool use" in agents_text
+            and "material findings, decisions, blockers" in agents_text,
+            "first-principles, adversarial, or commentary guidance is missing or globally over-broad",
+        )
 
     skill_manifest = EXPORT_ROOT / "memories" / "vault_summaries" / "skill-change-manifest-2026-07-10.md"
     mechanism_manifest = (
@@ -398,6 +442,54 @@ def main() -> int:
         and "curated redacted projection" in read(weekly_sync)
         and "Never recursively overwrite" in read(weekly_sync),
         "weekly export sync can still stage unsafe files or overwrite curated projections",
+    )
+    route_eval = EXPORT_ROOT / "tools" / "run_skill_route_evals.py"
+    require(
+        "route_eval_checks_continuation",
+        route_eval.exists()
+        and 'final_obj.get("would_continue_without_waiting") is not True' in read(route_eval),
+        "route regression can still pass when the agent intends to stop between safe substeps",
+    )
+    require(
+        "route_eval_is_bounded_and_incremental",
+        "stdin=subprocess.DEVNULL" in read(route_eval)
+        and "partial_report = build_report" in read(route_eval)
+        and '"case_completed"' in read(route_eval),
+        "route regression can still wait on stdin or lose completed cases during a later timeout",
+    )
+    audit_script = EXPORT_ROOT / "tools" / "audit_codex_system.py"
+    require(
+        "system_audit_classifies_expected_duplicates",
+        audit_script.exists()
+        and "plugin_scoped_duplicate_names" in read(audit_script)
+        and "mirror_duplicate_groups" in read(audit_script)
+        and "unexplained_duplicate_groups" in read(audit_script),
+        "system audit can still report plugin namespaces or private mirrors as unresolved conflicts",
+    )
+    require(
+        "system_audit_is_owner_aware",
+        'row.root_kind == "codex-local" and not row.has_openai_yaml' in read(audit_script)
+        and "owner_managed_without_openai_yaml" in read(audit_script),
+        "system audit can still flag Lark or plugin-managed skills for missing Codex policy files",
+    )
+    skill_surface_validator = EXPORT_ROOT / "tools" / "validate_skill_surfaces.py"
+    require(
+        "skill_validation_is_owner_aware",
+        skill_surface_validator.exists()
+        and "run_codex_validation" in read(skill_surface_validator)
+        and "run_lark_check" in read(skill_surface_validator)
+        and '"version"' in read(skill_surface_validator)
+        and '"skills_status"' in read(skill_surface_validator),
+        "all skills can still be judged by one incompatible frontmatter validator",
+    )
+    external_update_checker = EXPORT_ROOT / "tools" / "check_external_skill_updates.py"
+    require(
+        "external_update_check_is_honest",
+        external_update_checker.exists()
+        and "needs_baseline" in read(external_update_checker)
+        and "def head_ref" in read(external_update_checker)
+        and "unsupported_tracking" in read(external_update_checker),
+        "external update checks can still omit branch-only sources or unverified baselines",
     )
 
     print(

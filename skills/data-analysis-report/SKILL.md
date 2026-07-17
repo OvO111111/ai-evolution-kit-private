@@ -1,6 +1,6 @@
 ---
 name: data-analysis-report
-description: "Use only when the requested deliverable is explicitly a decision-grade analysis report, executive readout, findings-and-recommendations document, or an existing analysis report that needs improvement. Inputs may include Excel, CSV, exported dashboard evidence, business datasets, complaint/customer/payment data, or research. Do not select for constructing an operational dashboard, designing a KPI framework, data-quality-only assessment, notebook work, market sizing, or metric diagnostics; those belong to the focused official Data Analytics skills when available."
+description: "Use for a decision-grade analysis report, executive readout, findings-and-recommendations document, or report improvement. Also use as a clearly labeled degraded fallback for a source-backed portable HTML dashboard only when official Data Analytics dashboard skills are unavailable or fail. Prefer focused Data Analytics skills when callable."
 ---
 
 # Data Analysis Report
@@ -18,7 +18,19 @@ Use official Data Analytics instead when the primary deliverable is:
 - a recurring KPI/WBR/MBR/QBR readout already owned by a focused plugin skill.
 
 This local skill owns explicit report synthesis and report-artifact quality. It may
-consume exported dashboard evidence, but it does not own dashboard construction.
+consume exported dashboard evidence. It owns dashboard construction only through
+the degraded fallback below.
+
+## Dashboard Degraded Fallback
+
+When the primary deliverable is a dashboard, try official Data Analytics `index`
+and `build-dashboard` first. If those skills are not exposed or their callable
+route fails, continue without waiting: state that the route is degraded, load the
+official Spreadsheets skill for source validation, and build a source-backed,
+self-contained portable HTML dashboard. Preserve the dashboard brief, metric
+definitions, filters, source lineage, reconciliation, and visual QA. Do not claim
+that this fallback provides connected BI, semantic-layer, refresh, or publishing
+features that were not actually available.
 
 Inspired by the useful parts of OpenSenseNova `SenseNova-Skills`: Excel workflow, report-format discovery, deep-research planning/synthesis, HTML/PPT report delivery, and quality checks. Do not copy or depend on its runtime by default.
 
@@ -40,8 +52,8 @@ Also load the relevant file-format skill as needed:
 
 If the primary deliverable is a reusable operational dashboard rather than an
 analysis report, hand routing to official Data Analytics `index` and
-`build-dashboard`. This skill may still contribute findings or report narrative, but
-must not suppress the dashboard workflow.
+`build-dashboard`. Use the degraded fallback only after that route is unavailable
+or fails; it must not suppress a callable dashboard workflow.
 
 ## Workflow
 

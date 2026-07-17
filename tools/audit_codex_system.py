@@ -211,6 +211,7 @@ def discover_skills(codex_home: Path, agents_home: Path) -> tuple[list[SkillReco
 
     conflicts = []
     exact_duplicates = []
+    plugin_scoped_duplicates = []
     for name, rows in sorted(by_name.items()):
         if len(rows) < 2:
             continue
@@ -220,8 +221,21 @@ def discover_skills(codex_home: Path, agents_home: Path) -> tuple[list[SkillReco
             "root_kinds": sorted({row.root_kind for row in rows}),
             "hashes": sorted({row.content_hash for row in rows}),
         }
+        plugin_namespaces = set()
+        for row in rows:
+            if row.root_kind != "plugin-cache":
+                continue
+            try:
+                relative = Path(row.path).relative_to(plugin_cache)
+            except ValueError:
+                continue
+            if len(relative.parts) >= 2:
+                plugin_namespaces.add("/".join(relative.parts[:2]))
+        item["plugin_namespaces"] = sorted(plugin_namespaces)
         if len(item["hashes"]) == 1:
             exact_duplicates.append(item)
+        elif len(plugin_namespaces) == len(rows):
+            plugin_scoped_duplicates.append(item)
         else:
             conflicts.append(item)
 
@@ -233,8 +247,23 @@ def discover_skills(codex_home: Path, agents_home: Path) -> tuple[list[SkillReco
         "invalid_frontmatter": [row.path for row in active_records if not row.valid_frontmatter],
         "over_500_lines": [row.path for row in active_records if row.lines > 500],
         "mojibake_suspects": [row.path for row in active_records if row.mojibake_hits >= 3],
-        "missing_openai_yaml": [row.path for row in active_records if not row.has_openai_yaml],
+        "missing_openai_yaml": [
+            row.path
+            for row in active_records
+            if row.root_kind == "codex-local" and not row.has_openai_yaml
+        ],
+        "owner_managed_without_openai_yaml": {
+            root_kind: len(
+                [
+                    row
+                    for row in active_records
+                    if row.root_kind == root_kind and not row.has_openai_yaml
+                ]
+            )
+            for root_kind in ("agents-shared", "plugin-cache")
+        },
         "exact_duplicate_names": exact_duplicates,
+        "plugin_scoped_duplicate_names": plugin_scoped_duplicates,
         "conflicting_duplicate_names": conflicts,
         "read_errors": read_errors,
     }
@@ -503,11 +532,19 @@ def scan_memories(memories_root: Path) -> dict[str, Any]:
                 if not has_scope:
                     frontmatter_missing_scope.append(str(path))
     duplicates = [paths for paths in by_hash.values() if len(paths) > 1]
+    mirror_duplicates = [
+        paths
+        for paths in duplicates
+        if any("evolution-kit-private" in Path(path).parts for path in paths)
+    ]
+    unexplained_duplicates = [paths for paths in duplicates if paths not in mirror_duplicates]
     return {
         "memory_files": len(files),
         "bytes_scanned": total_bytes,
         "exact_duplicate_groups": duplicates,
         "exact_duplicate_files": sum(len(group) for group in duplicates),
+        "mirror_duplicate_groups": mirror_duplicates,
+        "unexplained_duplicate_groups": unexplained_duplicates,
         "mojibake_suspects": mojibake,
         "frontmatter_missing_scope": frontmatter_missing_scope,
         "read_errors": read_errors,
@@ -580,6 +617,7 @@ def markdown_report(report: dict[str, Any]) -> str:
         "## Skill Integrity",
         "",
         f"- Exact duplicate names: {len(skills['exact_duplicate_names'])}",
+        f"- Plugin-scoped duplicate names: {len(skills['plugin_scoped_duplicate_names'])}",
         f"- Conflicting duplicate names: {len(skills['conflicting_duplicate_names'])}",
         f"- Invalid frontmatter: {len(skills['invalid_frontmatter'])}",
         f"- Skills over 500 lines: {len(skills['over_500_lines'])}",
@@ -589,6 +627,8 @@ def markdown_report(report: dict[str, Any]) -> str:
         "",
         f"- Exact duplicate groups: {len(memories['exact_duplicate_groups'])}",
         f"- Files in duplicate groups: {memories['exact_duplicate_files']}",
+        f"- Expected private-mirror duplicate groups: {len(memories['mirror_duplicate_groups'])}",
+        f"- Unexplained duplicate groups: {len(memories['unexplained_duplicate_groups'])}",
         f"- Mojibake suspects: {len(memories['mojibake_suspects'])}",
         f"- Scoped frontmatter gaps: {len(memories['frontmatter_missing_scope'])}",
         "",
@@ -654,6 +694,8 @@ def main() -> int:
                 "memories": {
                     "memory_files": report["memories"]["memory_files"],
                     "exact_duplicate_groups": len(report["memories"]["exact_duplicate_groups"]),
+                    "mirror_duplicate_groups": len(report["memories"]["mirror_duplicate_groups"]),
+                    "unexplained_duplicate_groups": len(report["memories"]["unexplained_duplicate_groups"]),
                     "mojibake_suspects": len(report["memories"]["mojibake_suspects"]),
                 },
                 "skills": {
@@ -662,6 +704,7 @@ def main() -> int:
                     "stale_cache_skill_files": skill_summary["stale_cache_skill_files"],
                     "unique_names": skill_summary["unique_names"],
                     "exact_duplicate_names": len(skill_summary["exact_duplicate_names"]),
+                    "plugin_scoped_duplicate_names": len(skill_summary["plugin_scoped_duplicate_names"]),
                     "conflicting_duplicate_names": len(skill_summary["conflicting_duplicate_names"]),
                 },
                 "current_model": current_model,

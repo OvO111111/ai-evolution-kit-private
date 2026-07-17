@@ -2,3 +2,5 @@ interface:
   display_name: "PDF Legacy Fallback"
   short_description: "Low-level PDF fallback and repair workflow"
   default_prompt: "Use $pdf-legacy-fallback only when the official PDF workflow is unavailable or low-level repair is required."
+policy:
+  allow_implicit_invocation: false

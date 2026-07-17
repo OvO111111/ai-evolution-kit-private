@@ -78,6 +78,8 @@ When the user asks for several genuinely different design options, independent l
 
 All lanes share the same confirmed business facts, but must differ in at least four of these: information architecture, primary interaction, navigation model, composition, density, typography, color system, content hierarchy, and state presentation. Recoloring one shell is a failed comparison.
 
+A valid comparison test must render actual task screens with functional controls under the same brief. Method-description cards, route labels, moodboards, or recolored shells are not artifact-quality evidence.
+
 For admin work, establish one page-task matrix first, then let each lane solve it differently. For company H5 work, keep the H5-before-admin-before-PRD stage order.
 
 Load each lane's main `SKILL.md`, but use progressive disclosure: read only the references/assets required for that lane's artifact. Do not load every appendix from every design skill before producing the lane briefs.
@@ -92,6 +94,7 @@ Do not report a design as complete until:
 - empty, loading, error, permission, and long-content states are considered;
 - visible controls are functional or explicitly unavailable;
 - desktop and mobile screenshots were inspected where applicable;
+- multi-option work was compared as real task surfaces, not prose cards describing each method;
 - a source-target comparison or design QA was run for fidelity-sensitive work.
 
 Build success and a single screenshot are evidence, not the acceptance result.

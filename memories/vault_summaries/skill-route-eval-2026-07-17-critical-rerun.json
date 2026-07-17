@@ -1,0 +1,183 @@
+{
+  "generated_at": "2026-07-17T05:20:26.908754+00:00",
+  "model": "gpt-5.6-sol",
+  "codex": "%LOCALAPPDATA%\\OpenAI\\Codex\\bin\\5dee10576ec7a5b8\\codex.exe",
+  "cases": 3,
+  "passed": 2,
+  "failed": 1,
+  "degraded": 1,
+  "results": [
+    {
+      "case_id": "data_dashboard",
+      "passed": true,
+      "degraded": true,
+      "failures": [],
+      "preference_misses": [
+        "preferred route unavailable or not selected: ['data-analytics:build-dashboard', 'build-dashboard']"
+      ],
+      "selected_skills": [
+        "data-analysis-report",
+        "spreadsheets:Spreadsheets"
+      ],
+      "excluded_skills": [
+        "metabase-bi-semantic-layer",
+        "admin-platform-execution-gate",
+        "ui-product-design-router",
+        "sites:sites-building",
+        "visualize:visualize"
+      ],
+      "ordered_actions": [
+        "盘点数据源、字段、粒度、日期范围和表间关系",
+        "检查缺失值、重复记录、异常值、口径冲突及关键维度完整性",
+        "明确经营决策目标并定义 KPI 的公式、分母、时间窗口和适用范围",
+        "计算 KPI 并与源数据总量及代表性样本交叉核对",
+        "按决策问题构建趋势、结构、对比和异常监控可视化",
+        "检查筛选条件、单位、标签、公式错误、数据血缘和复核说明"
+      ],
+      "blocking_questions": [
+        "结构化数据文件或可读取的数据源在哪里？"
+      ],
+      "would_continue_without_waiting": true,
+      "scope_reason": "当前没有可调用的官方 Data Analytics 仪表盘技能，因此采用 data-analysis-report 的降级仪表盘路径并由 Spreadsheets 完成数据校验，不扩展到 Metabase、管理后台或网站建设。",
+      "skill_folders_read": [
+        "data-analysis-report",
+        "spreadsheets"
+      ],
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 70698,
+        "cached_input_tokens": 42496,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1506,
+        "reasoning_output_tokens": 1009
+      },
+      "stdout_parse_errors": 0,
+      "stderr_signals": [
+        "2026-07-17T05:19:29.187048Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:19:29.187083Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:19:29.198853Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell",
+        "2026-07-17T05:19:32.313622Z  WARN codex_rmcp_client::stdio_server_launcher: Failed to read MCP server stderr (bash): stream did not contain valid UTF-8",
+        "2026-07-17T05:19:36.604295Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:19:36.604335Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:20:21.440109Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: connection closed: initialize response"
+      ]
+    },
+    {
+      "case_id": "feishu_whiteboard",
+      "passed": true,
+      "degraded": false,
+      "failures": [],
+      "preference_misses": [],
+      "selected_skills": [
+        "diagram-drawing-router",
+        "lark-whiteboard",
+        "lark-shared"
+      ],
+      "excluded_skills": [
+        "lark-approval",
+        "lark-doc",
+        "lark-base"
+      ],
+      "ordered_actions": [
+        "检查 lark-cli、whiteboard-cli 和用户身份授权状态",
+        "未指定目标时使用默认飞书画板文档",
+        "按通用审批骨架定义提交、审批、条件判断、通过、驳回和退回节点",
+        "使用 DSL 与 Dagre 布局生成可独立编辑的节点和带标签连线",
+        "本地渲染并检查重叠、交叉、标签和回路",
+        "单次写入画板并导出预览图完成视觉核验"
+      ],
+      "blocking_questions": [],
+      "would_continue_without_waiting": true,
+      "scope_reason": "本请求只创建可编辑的飞书画板流程图，不涉及发起或处理真实审批实例，也不编辑文档正文或多维表格。",
+      "skill_folders_read": [
+        "diagram-drawing-router",
+        "lark-shared",
+        "lark-whiteboard"
+      ],
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 131730,
+        "cached_input_tokens": 110336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2073,
+        "reasoning_output_tokens": 1268
+      },
+      "stdout_parse_errors": 0,
+      "stderr_signals": [
+        "2026-07-17T05:16:48.141092Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:16:48.141126Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:16:48.153817Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell",
+        "2026-07-17T05:16:50.439442Z  WARN codex_rmcp_client::stdio_server_launcher: Failed to read MCP server stderr (bash): stream did not contain valid UTF-8",
+        "2026-07-17T05:16:53.033080Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit",
+        "2026-07-17T05:16:53.821152Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:16:53.821188Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:17:19.757250Z ERROR codex_core::tools::router: error=Exit code: 1",
+        "2026-07-17T05:17:28.023191Z ERROR codex_core::tools::router: error=Exit code: 1",
+        "2026-07-17T05:17:53.835369Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: connection closed: initialize response"
+      ]
+    },
+    {
+      "case_id": "lark_group_read",
+      "passed": false,
+      "degraded": false,
+      "failures": [
+        "would_continue_without_waiting is not true"
+      ],
+      "preference_misses": [],
+      "selected_skills": [
+        "lark-im",
+        "lark-shared"
+      ],
+      "excluded_skills": [
+        "wechat-work-context",
+        "lark-event",
+        "lark-task",
+        "lark-vc"
+      ],
+      "ordered_actions": [
+        "用 lark-cli auth status --json --verify 检查飞书用户身份与只读权限",
+        "根据群名或 chat_id 搜索并确认唯一目标工作群",
+        "用 lark-cli im +chat-messages-list --as user 按时间倒序读取最近消息",
+        "必要时读取相关话题线程，补全回复链上下文",
+        "按参与人、时间线、议题、结论和未决事项整理摘要",
+        "仅返回整理结果，不调用任何发送、回复或群管理命令"
+      ],
+      "blocking_questions": [
+        "请提供目标飞书工作群的准确群名或 chat_id（oc_xxx）；如有同名群，请同时提供成员或群描述用于消歧。"
+      ],
+      "would_continue_without_waiting": false,
+      "scope_reason": "本任务仅限飞书 IM 中指定群聊的只读检索与上下文整理，不涉及本地微信记录、实时事件监听或任何消息发送。",
+      "skill_folders_read": [
+        "lark-im",
+        "lark-shared"
+      ],
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 128689,
+        "cached_input_tokens": 90112,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1622,
+        "reasoning_output_tokens": 1064
+      },
+      "stdout_parse_errors": 0,
+      "stderr_signals": [
+        "2026-07-17T05:17:55.004494Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:17:55.004541Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:17:55.021139Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell",
+        "2026-07-17T05:17:55.376017Z  WARN codex_rmcp_client::stdio_server_launcher: Failed to read MCP server stderr (bash): stream did not contain valid UTF-8",
+        "2026-07-17T05:17:59.916597Z  WARN codex_core_plugins::manager: failed to load recommended plugins error=failed to parse remote plugin catalog response from https://chatgpt.com/backend-api/ps/plugins/suggested: EOF while parsing a value at line 1 column 0",
+        "2026-07-17T05:17:59.916637Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit",
+        "2026-07-17T05:18:12.822648Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:18:12.822680Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+        "2026-07-17T05:18:13.555795Z  WARN codex_core_plugins::manager: failed to load recommended plugins error=failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/suggested: error sending request for url (https://chatgpt.com/backend-api/ps/plugins/suggested?scope=GLOBAL)",
+        "2026-07-17T05:18:18.579526Z  WARN codex_core_plugins::manager: failed to load recommended plugins error=failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/suggested: error sending request for url (https://chatgpt.com/backend-api/ps/plugins/suggested?scope=GLOBAL)",
+        "2026-07-17T05:18:24.118471Z ERROR codex_core::tools::router: error=Exit code: 1",
+        "2026-07-17T05:18:29.129272Z  WARN codex_core_plugins::manager: failed to load recommended plugins error=failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/suggested: error sending request for url (https://chatgpt.com/backend-api/ps/plugins/suggested?scope=GLOBAL)",
+        "2026-07-17T05:18:41.854458Z  WARN codex_core_plugins::manager: failed to load recommended plugins error=failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/suggested: error sending request for url (https://chatgpt.com/backend-api/ps/plugins/suggested?scope=GLOBAL)",
+        "2026-07-17T05:18:53.629067Z  WARN codex_core_plugins::manager: failed to load recommended plugins error=failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/suggested: error sending request for url (https://chatgpt.com/backend-api/ps/plugins/suggested?scope=GLOBAL)",
+        "2026-07-17T05:19:03.080087Z  WARN codex_core_plugins::manager: failed to load recommended plugins error=failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/suggested: error sending request for url (https://chatgpt.com/backend-api/ps/plugins/suggested?scope=GLOBAL)",
+        "2026-07-17T05:19:28.360520Z  WARN codex_mcp::rmcp_client: failed to initialize MCP client during shutdown: MCP startup failed: handshaking with MCP server failed: connection closed: initialize response"
+      ]
+    }
+  ]
+}

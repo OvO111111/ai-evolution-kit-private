@@ -1,6 +1,12 @@
 ---
 name: agent-reach
 description: Research and read public social, video, code, RSS, and difficult article sources through Agent Reach and platform-specific command paths. Use after `web-access` selects a platform-specific route, or when the user explicitly asks for Agent Reach, social-platform search, video subtitles, public WeChat-article extraction, or Agent Reach diagnostics. Do not use for ordinary pages that the built-in web or browser can read directly, and do not import cookies or perform account-changing actions by default.
+metadata:
+  upstream: https://github.com/bzd6661/wechat-article-for-ai
+  upstream_ref: master
+  upstream_commit: 69de9e413cca3fe6b770c40a4dec204afd5b2b3c
+  upstream_tracking: head
+  upstream_policy: pinned_runtime
 ---
 
 # Agent Reach

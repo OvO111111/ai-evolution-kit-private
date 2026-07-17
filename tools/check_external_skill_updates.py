@@ -15,7 +15,7 @@ import yaml
 
 FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*", re.DOTALL)
 GITHUB_RE = re.compile(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+")
-SEMVER_RE = re.compile(r"^v?(\d+)(?:\.(\d+))?(?:\.(\d+))?(?:[-+].*)?$")
+SEMVER_RE = re.compile(r"(?:^v?|[-_]v)(\d+)(?:\.(\d+))?(?:\.(\d+))?(?:[-+].*)?$")
 
 
 @dataclass
@@ -28,6 +28,8 @@ class SkillUpdateStatus:
     local_commit: str | None = None
     latest_ref: str | None = None
     latest_commit: str | None = None
+    tracking: str | None = None
+    policy: str | None = None
     github_urls: list[str] | None = None
     message: str | None = None
 
@@ -45,7 +47,7 @@ def parse_frontmatter(text: str) -> dict[str, Any]:
 
 def semver_key(tag: str) -> tuple[int, int, int, str]:
     clean = tag.rsplit("/", 1)[-1]
-    match = SEMVER_RE.match(clean)
+    match = SEMVER_RE.search(clean)
     if not match:
         return (-1, -1, -1, clean)
     major = int(match.group(1) or 0)
@@ -74,11 +76,37 @@ def run_git_ls_remote(url: str, pattern: str) -> list[tuple[str, str]]:
 
 def latest_tag(url: str) -> tuple[str | None, str | None]:
     rows = run_git_ls_remote(url, "*")
-    tags = [(commit, ref.rsplit("/", 1)[-1]) for commit, ref in rows if SEMVER_RE.match(ref.rsplit("/", 1)[-1])]
+    tags = [
+        (commit, ref.rsplit("/", 1)[-1])
+        for commit, ref in rows
+        if SEMVER_RE.search(ref.rsplit("/", 1)[-1])
+    ]
     if not tags:
         return None, None
     commit, tag = sorted(tags, key=lambda item: semver_key(item[1]))[-1]
     return tag, commit
+
+
+def head_ref(url: str) -> tuple[str | None, str | None]:
+    proc = subprocess.run(
+        ["git", "ls-remote", "--symref", url, "HEAD"],
+        check=False,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(proc.stderr.strip() or f"git ls-remote failed: {url}")
+    branch: str | None = None
+    commit: str | None = None
+    for line in proc.stdout.splitlines():
+        if line.startswith("ref: refs/heads/") and line.endswith("\tHEAD"):
+            branch = line.split("\t", 1)[0].removeprefix("ref: refs/heads/")
+        else:
+            parts = line.split()
+            if len(parts) == 2 and parts[1] == "HEAD":
+                commit = parts[0]
+    return branch or "HEAD", commit
 
 
 def check_skill(skill_file: Path) -> SkillUpdateStatus | None:
@@ -89,6 +117,8 @@ def check_skill(skill_file: Path) -> SkillUpdateStatus | None:
     upstream = upstream_meta.get("upstream") or meta.get("upstream") or None
     local_ref = upstream_meta.get("upstream_ref") or meta.get("upstream_ref") or None
     local_commit = upstream_meta.get("upstream_commit") or meta.get("upstream_commit") or None
+    tracking = upstream_meta.get("upstream_tracking") or meta.get("upstream_tracking") or "tag"
+    policy = upstream_meta.get("upstream_policy") or meta.get("upstream_policy") or "review_only"
     github_urls = sorted(set(GITHUB_RE.findall(text)))
 
     if not upstream:
@@ -110,11 +140,28 @@ def check_skill(skill_file: Path) -> SkillUpdateStatus | None:
             upstream=upstream,
             local_ref=local_ref,
             local_commit=local_commit,
+            tracking=tracking,
+            policy=policy,
             message="Only GitHub upstreams are implemented by this checker.",
         )
 
     try:
-        ref, commit = latest_tag(upstream)
+        if tracking == "head":
+            ref, commit = head_ref(upstream)
+        elif tracking == "tag":
+            ref, commit = latest_tag(upstream)
+        else:
+            return SkillUpdateStatus(
+                skill=skill,
+                path=str(skill_file),
+                status="unsupported_tracking",
+                upstream=upstream,
+                local_ref=local_ref,
+                local_commit=local_commit,
+                tracking=tracking,
+                policy=policy,
+                message=f"Unsupported upstream tracking mode: {tracking}",
+            )
     except Exception as exc:  # noqa: BLE001
         return SkillUpdateStatus(
             skill=skill,
@@ -123,6 +170,8 @@ def check_skill(skill_file: Path) -> SkillUpdateStatus | None:
             upstream=upstream,
             local_ref=local_ref,
             local_commit=local_commit,
+            tracking=tracking,
+            policy=policy,
             message=str(exc),
         )
 
@@ -134,10 +183,21 @@ def check_skill(skill_file: Path) -> SkillUpdateStatus | None:
             upstream=upstream,
             local_ref=local_ref,
             local_commit=local_commit,
+            tracking=tracking,
+            policy=policy,
             message="No semver-like tags found upstream.",
         )
 
-    if local_ref == ref and (not local_commit or local_commit == commit):
+    if not local_ref or not local_commit:
+        status = "needs_baseline"
+        message = "Upstream is tracked, but the adapted local baseline is not recorded; compare before claiming current."
+    elif tracking == "head" and local_commit == commit:
+        status = "current"
+        message = "Pinned local commit matches the current upstream HEAD."
+    elif tracking == "head":
+        status = "update_available"
+        message = "Upstream HEAD differs from the pinned local commit; review before updating."
+    elif local_ref == ref and local_commit == commit:
         status = "current"
         message = "Local upstream metadata matches latest tag."
     elif local_ref == ref and local_commit and local_commit != commit:
@@ -156,6 +216,8 @@ def check_skill(skill_file: Path) -> SkillUpdateStatus | None:
         local_commit=local_commit,
         latest_ref=ref,
         latest_commit=commit,
+        tracking=tracking,
+        policy=policy,
         github_urls=github_urls,
         message=message,
     )
@@ -197,11 +259,21 @@ def main() -> int:
         for item in results:
             latest = f" latest={item.latest_ref or '-'}"
             local = f" local={item.local_ref or '-'}"
-            print(f"[{item.status}] {item.skill}{local}{latest} :: {item.message}")
+            tracking = f" tracking={item.tracking or '-'}"
+            policy = f" policy={item.policy or '-'}"
+            print(f"[{item.status}] {item.skill}{local}{latest}{tracking}{policy} :: {item.message}")
             if item.status == "needs_metadata" and item.github_urls:
                 print(f"  urls={'; '.join(item.github_urls[:5])}")
 
-    bad_statuses = {"update_available", "tag_commit_changed", "check_failed", "needs_metadata", "unsupported_upstream"}
+    bad_statuses = {
+        "update_available",
+        "tag_commit_changed",
+        "check_failed",
+        "needs_metadata",
+        "needs_baseline",
+        "unsupported_upstream",
+        "unsupported_tracking",
+    }
     if args.strict and any(item.status in bad_statuses for item in results):
         return 2
     return 0

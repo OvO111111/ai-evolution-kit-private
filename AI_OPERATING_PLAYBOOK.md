@@ -46,6 +46,7 @@ For a non-trivial request:
 | Generic UI/product design | `skills/ui-product-design-router` | A routed design workflow plus visible/browser-verified artifact |
 | Company/work H5 under the unified-admin family | `skills/app-factory-h5-admin` | Scope confirmed, H5 first, admin second, PRD after experience/function confirmation |
 | Data analysis report | `skills/data-analysis-report` or the target runtime's data-analysis capability | Source-backed metrics, method, findings, limits, and decision implications |
+| Operational dashboard | Official Data Analytics dashboard capability; labeled local HTML fallback only when unavailable | Source-backed KPI model, filters, reconciliation, usable visual surface, and explicit degradation |
 | Feishu/Lark document, board, sheet, or message | Matching Lark skill or native connector | Real editable native artifact or confirmed read/action |
 | WeChat work-group history | `skills/wechat-work-context` | Read-only, group-isolated retrieval with message evidence; never auto-send |
 | Self-evolution, skill absorption, global improvement | `skills/absorb-lessons` | Source logged, overlap judged, behavior card updated, and realistic validation recorded |
@@ -53,6 +54,84 @@ For a non-trivial request:
 Project-derived capabilities are scoped. Company/work H5, unified-admin, payment,
 Feishu operations, and WeChat work-context knowledge must not leak into unrelated
 personal, open-source, client, or generic tasks.
+
+## Capability Card: Multi-Option Admin Design
+
+### Trigger
+
+Use this card for natural requests such as `后台太丑，重做`, `做几个不同方案`,
+`分别用四种设计方法`, or any admin/internal-tool comparison where the user
+expects genuinely different usable options. The user does not need to name a skill.
+
+### Required Outcome
+
+- Inspect the real source, screenshot, PRD, or fixed brief before designing.
+- Define the operator, first-screen job, entity/state model, primary action, and
+  success condition once; keep these business facts constant across options.
+- Render actual task screens. Method-description cards, route labels, moodboards,
+  or one shell with color changes are not design artifacts.
+- Options must differ in at least four of: navigation, information architecture,
+  primary interaction, composition, density, typography, color logic, hierarchy,
+  and state presentation.
+- Visible filters, row selection, details, and primary actions must work or be
+  explicitly unavailable. Include relevant loading, empty, error, permission,
+  long-content, and stale-data behavior in production work.
+
+### Route And Verification
+
+1. Establish the admin product model and page-task matrix.
+2. Give each lane a distinct reference family and design thesis.
+3. Build isolated real screens under the same brief.
+4. Run mechanical QA at representative desktop and narrow widths: nonblank render,
+   no incoherent clipping/overlap, working filters, row selection, and primary action.
+5. Run a blind screenshot review using task fit, scanability, information
+   architecture, action clarity, and visual finish. Hide method names and changed
+   files from the evaluator.
+6. Fix each failed lane and rerun the same review. An overall pass must not hide an
+   individual lane that fails the professional admin bar.
+
+### Scope And Failure Semantics
+
+Project-specific H5/admin patterns apply only to matching company work. Generic or
+personal products use generic product-design context. Route selection proves only
+that the method was chosen; it does not prove the artifact is good.
+
+Validation recorded on 2026-07-15: an earlier method-card fixture was invalidated.
+A replacement complaint-operations benchmark rendered four structurally distinct
+admin surfaces, passed 1440px/1024px mechanical QA and interaction checks, and
+reached 4/4 professional-bar passes after two blind-review repair cycles.
+
+## Capability Card: System-Wide Evolution Audit
+
+### Trigger
+
+Use when the user asks for a comprehensive self-check, global evolution, skill
+cleanup, capability truth audit, or correction after a model/runtime upgrade.
+
+### Required Coverage
+
+Audit the complete control plane rather than the named example:
+
+1. global operating instructions and context budget;
+2. config, MCPs, enabled/disabled plugins, and live callable tools;
+3. active/reference/candidate/archived skills, overlaps, and evidence;
+4. automations, versions, update checks, and actual run history;
+5. memory scope, duplicate/mirror classification, encoding, and export boundaries;
+6. public/private evolution export state and safety checks;
+7. historical user failure signals across tasks and projects.
+
+### Evidence And Completion
+
+Keep evidence tiers separate: install state, route selection, live callable smoke,
+artifact quality, and end-to-end behavior. Use fresh sessions for routing, real
+tools for browser/desktop/CLI capability, and a realistic artifact benchmark for
+quality-sensitive workflows. Record every changed rule, skill, automation, tool,
+reason, test, degraded state, deliberately unchanged item, and residual risk.
+
+Keep the global operating file small; this implementation enforces a 40-line and
+4KB budget. Put detailed routes in skills and portable cards. A system-wide audit
+is incomplete if it only changes one named skill, reports cache presence as proof,
+or omits failed tests.
 
 ## Capability Card: Public WeChat Article Reading
 

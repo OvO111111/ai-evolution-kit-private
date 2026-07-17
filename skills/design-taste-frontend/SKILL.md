@@ -1,6 +1,12 @@
 ---
 name: design-taste-frontend
 description: Anti-template frontend direction and quality control for public landing pages, portfolios, marketing sites, editorial pages, and redesigns. Use when a public-facing web surface needs stronger typography, composition, visual hierarchy, asset direction, motion discipline, or a real design-system choice. Do not use as the main route for admin dashboards, dense internal tools, data tables, or multi-step product flows.
+metadata:
+  upstream: https://github.com/Leonxlnx/taste-skill
+  upstream_ref: main
+  upstream_commit: b17742737e796305d829b3ad39eda3add0d79060
+  upstream_tracking: head
+  upstream_policy: review_only
 ---
 
 # Design Taste Frontend

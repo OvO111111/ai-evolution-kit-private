@@ -192,6 +192,20 @@ CASES = [
         "must_read": ["adversarial-review", "absorb-lessons"],
     },
     {
+        "id": "first_principles_adversarial_decision",
+        "request": "从第一性原理出发，评估是否把所有内部工具从现有 PostgreSQL 迁移到事件溯源。开启对抗式审查。先不要执行；给出明确结论和最小证伪实验。",
+        "expected_groups": [["adversarial-review"]],
+        "forbidden": [],
+        "sequence": [
+            ["目标", "goal"],
+            ["证据", "evidence"],
+            ["失败", "failure"],
+            ["实验", "experiment"],
+        ],
+        "must_include": [["结论", "decision", "experiment first"]],
+        "must_read": ["adversarial-review"],
+    },
+    {
         "id": "low_risk_no_red_team",
         "request": "把已确认页面的按钮文案从‘下一步’改成‘继续’，这是可随时撤销的小改动。直接修改并做一次页面验证，不要扩大范围。",
         "expected_groups": [],
@@ -216,7 +230,7 @@ CASES = [
     {
         "id": "data_dashboard",
         "request": "基于结构化业务数据设计一个可复核的经营仪表盘，先检查数据质量、定义 KPI，再构建可视化。",
-        "expected_groups": [["data-analytics:build-dashboard", "build-dashboard", "visualize:visualize"]],
+        "expected_groups": [["data-analytics:build-dashboard", "build-dashboard", "data-analysis-report"]],
         "preferred_groups": [["data-analytics:build-dashboard", "build-dashboard"]],
         "forbidden": ["open-design-design-systems"],
         "sequence": [],
@@ -283,6 +297,7 @@ def run_case(codex: Path, model: str, cwd: Path, case: dict[str, Any], timeout: 
     env["PYTHONUTF8"] = "1"
     proc = subprocess.run(
         command,
+        stdin=subprocess.DEVNULL,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
@@ -348,6 +363,10 @@ def run_case(codex: Path, model: str, cwd: Path, case: dict[str, Any], timeout: 
             failures.append(f"missing/out-of-order action token: {aliases}")
             break
         last_pos = min(matching_positions)
+    for token in case.get("must_include") or []:
+        aliases = token if isinstance(token, list) else [token]
+        if not any(str(alias).casefold() in actions_text.casefold() for alias in aliases):
+            failures.append(f"missing required action token: {aliases}")
     read_folders_folded = {folder.casefold() for folder in read_folders}
     for folder in case.get("must_read") or []:
         if folder.casefold() not in read_folders_folded:
@@ -355,6 +374,8 @@ def run_case(codex: Path, model: str, cwd: Path, case: dict[str, Any], timeout: 
     questions = final_obj.get("blocking_questions") or []
     if not isinstance(questions, list) or len(questions) > 3:
         failures.append("blocking_questions is not a list of at most 3 items")
+    if final_obj.get("would_continue_without_waiting") is not True:
+        failures.append("would_continue_without_waiting is not true")
     if final_error:
         failures.append(f"final JSON parse failed: {final_error}")
     if proc.returncode != 0:
@@ -381,6 +402,20 @@ def run_case(codex: Path, model: str, cwd: Path, case: dict[str, Any], timeout: 
         "usage": usage,
         "stdout_parse_errors": parse_errors,
         "stderr_signals": stderr_signals[:20],
+    }
+
+
+def build_report(results: list[dict[str, Any]], model: str, codex: Path) -> dict[str, Any]:
+    ordered = sorted(results, key=lambda row: row["case_id"])
+    return {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "model": model,
+        "codex": str(codex),
+        "cases": len(ordered),
+        "passed": sum(1 for row in ordered if row.get("passed")),
+        "failed": sum(1 for row in ordered if not row.get("passed")),
+        "degraded": sum(1 for row in ordered if row.get("degraded")),
+        "results": ordered,
     }
 
 
@@ -421,17 +456,24 @@ def main() -> int:
             except Exception as exc:  # noqa: BLE001 - evaluation harness records per-case failures.
                 results.append({"case_id": case_id, "passed": False, "failures": [repr(exc)]})
 
-    results.sort(key=lambda row: row["case_id"])
-    report = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "model": args.model,
-        "codex": str(codex),
-        "cases": len(results),
-        "passed": sum(1 for row in results if row.get("passed")),
-        "failed": sum(1 for row in results if not row.get("passed")),
-        "degraded": sum(1 for row in results if row.get("degraded")),
-        "results": results,
-    }
+            partial_report = build_report(results, args.model, codex)
+            if args.out:
+                args.out.parent.mkdir(parents=True, exist_ok=True)
+                args.out.write_text(json.dumps(partial_report, ensure_ascii=False, indent=2), encoding="utf-8")
+            latest = next(row for row in partial_report["results"] if row["case_id"] == case_id)
+            print(
+                json.dumps(
+                    {
+                        "case_completed": case_id,
+                        "passed": latest.get("passed", False),
+                        "failures": latest.get("failures", []),
+                    },
+                    ensure_ascii=False,
+                ),
+                flush=True,
+            )
+
+    report = build_report(results, args.model, codex)
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

@@ -1,6 +1,6 @@
 ---
 name: adversarial-review
-description: Use for pure black-box product self-checks, first-time-user walkthroughs, red-team reviews, premortems, falsification tests, or requests to attack and disprove a plan before execution. Also use when a matching product/H5 or self-evolution skill invokes an adversarial gate for a high-impact workflow. Covers blind live-UI testing and plan stress-testing; do not use for routine unit tests, ordinary code review, small copy edits, or low-risk changes with an obvious reversible path.
+description: "Use when the user explicitly asks to 开启对抗式审查, run a pure black-box product self-check, perform a first-time-user walkthrough, red-team a plan, run a premortem or falsification test, or when a matching product/H5 or self-evolution skill invokes a high-impact gate. Covers blind live-UI testing and plan stress-testing; do not use for routine unit tests, ordinary code review, small copy edits, or low-risk reversible changes."
 ---
 
 # Adversarial Review
@@ -30,10 +30,11 @@ Do not call a page black-box verified because it rendered, a screenshot looked a
 Use this gate automatically only when failure would cause meaningful cost, privacy exposure, production impact, compliance risk, hard-to-reverse architecture, broad global behavior change, or substantial repeated-work overhead.
 
 1. Restate the plan and its success condition accurately.
-2. Assume the plan failed six months later. Identify at least three plausible causes grounded in the available sources.
-3. Attack hidden assumptions, missing failure states, source or version drift, operational cost, scope optimism, reversibility, and whether a simpler path reaches the same goal.
-4. For every material failure cause, provide its trigger, likely cost, earliest observable signal, and the smallest experiment that could disprove the plan.
-5. End with one decision: `proceed`, `experiment first`, or `redesign`. Recommend one path instead of returning an option menu.
+2. Separate known evidence, assumptions, and unknowns. Do not treat the plan's rationale or confident wording as evidence.
+3. Assume the plan failed six months later. Identify at least three plausible causes grounded in the available sources.
+4. Attack hidden assumptions, missing failure states, source or version drift, operational cost, scope optimism, reversibility, and whether a simpler path reaches the same goal.
+5. For every material failure cause, provide its trigger, likely cost, earliest observable signal, and the smallest experiment that could disprove the plan.
+6. End with one decision: `proceed`, `experiment first`, or `redesign`. Recommend one path instead of returning an option menu.
 
 Do not manufacture objections to routine, low-cost, reversible work. A red-team review that cannot change the decision is ceremony, not quality control.
 

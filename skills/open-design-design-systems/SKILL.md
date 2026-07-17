@@ -1,6 +1,12 @@
 ---
 name: open-design-design-systems
 description: "Use when the user explicitly asks for Open Design, a brand-grade DESIGN.md, design-system construction, or adaptation from a real reference benchmark; also use when the UI/product-design router selects Open Design as a distinct comparison lane. Do not select merely because a UI should be beautiful, an admin page is ugly, or a normal frontend needs styling."
+metadata:
+  upstream: https://github.com/nexu-io/open-design
+  upstream_ref: open-design-v0.15.0
+  upstream_commit: 79e257d62c0e6a8d9084f2a6464f08a251a5c0bb
+  upstream_tracking: tag
+  upstream_policy: review_only
 ---
 
 # Open Design Design Systems
