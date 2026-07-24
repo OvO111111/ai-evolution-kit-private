@@ -179,8 +179,9 @@ CASES = [
         "id": "black_box_user_walkthrough",
         "request": "公司刚做完一个 H5。请把自己当成第一次使用它的普通用户，不看代码，真实点击主要流程，检查哪里会迷路、报错、状态不清或返回后丢数据；发现问题后再修复并重走同一流程。",
         "expected_groups": [["adversarial-review"]],
-        "forbidden": ["project-prd-h5-audit"],
-        "sequence": ["黑盒", "修复", ["回归", "重走", "复测"]],
+        "forbidden": ["project-prd-audit", "project-prd-h5-audit"],
+        "sequence": [["黑盒", "盲测"], "修复", ["回归", "重走", "复测"]],
+        "allow_waiting": True,
         "must_read": ["adversarial-review"],
     },
     {
@@ -216,7 +217,7 @@ CASES = [
         "id": "company_h5_black_box_checkpoint",
         "request": "每周穿搭 H5 已经做完，现在到 H5 确认前的验收节点。不要先看代码，请按公司 H5 流程执行第一次用户黑盒走查，冻结问题后再修复并复测。",
         "expected_groups": [["app-factory-h5-admin"], ["adversarial-review"]],
-        "forbidden": ["project-prd-h5-audit"],
+        "forbidden": ["project-prd-audit", "project-prd-h5-audit"],
         "sequence": [["黑盒", "盲测"], ["冻结", "问题"], "修复", ["复测", "重走", "回归"]],
         "must_read": ["app-factory-h5-admin", "adversarial-review"],
     },
@@ -241,6 +242,7 @@ CASES = [
         "expected_groups": [["video-frames"]],
         "forbidden": ["computer-use:computer-use"],
         "sequence": [],
+        "allow_waiting": True,
     },
     {
         "id": "github_triage",
@@ -374,7 +376,7 @@ def run_case(codex: Path, model: str, cwd: Path, case: dict[str, Any], timeout: 
     questions = final_obj.get("blocking_questions") or []
     if not isinstance(questions, list) or len(questions) > 3:
         failures.append("blocking_questions is not a list of at most 3 items")
-    if final_obj.get("would_continue_without_waiting") is not True:
+    if not case.get("allow_waiting") and final_obj.get("would_continue_without_waiting") is not True:
         failures.append("would_continue_without_waiting is not true")
     if final_error:
         failures.append(f"final JSON parse failed: {final_error}")

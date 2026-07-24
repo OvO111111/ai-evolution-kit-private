@@ -39,6 +39,10 @@ def latest_version_dir(plugin: Path) -> Path:
     return max(versions, key=lambda path: path.stat().st_mtime)
 
 
+def first_existing(*paths: Path) -> Path:
+    return next((path for path in paths if path.exists()), paths[0])
+
+
 def main() -> int:
     failures: list[str] = []
     checks: list[str] = []
@@ -66,7 +70,10 @@ def main() -> int:
         "playwright": CODEX_HOME / "skills" / "playwright" / "SKILL.md",
         "absorb_lessons": CODEX_HOME / "skills" / "absorb-lessons" / "SKILL.md",
         "adversarial_review": CODEX_HOME / "skills" / "adversarial-review" / "SKILL.md",
-        "project_h5_audit": CODEX_HOME / "skills" / "project-prd-h5-audit" / "SKILL.md",
+        "project_h5_audit": first_existing(
+            CODEX_HOME / "skills" / "project-prd-audit" / "SKILL.md",
+            CODEX_HOME / "skills" / "project-prd-h5-audit" / "SKILL.md",
+        ),
         "huashu": CODEX_HOME / "skills" / "huashu-design" / "SKILL.md",
         "open_design_systems": CODEX_HOME / "skills" / "open-design-design-systems" / "SKILL.md",
         "design_taste": CODEX_HOME / "skills" / "design-taste-frontend" / "SKILL.md",
@@ -90,8 +97,10 @@ def main() -> int:
     require(
         "company_h5_is_scoped",
         "Use only for company/work H5" in texts["app_factory"]
-        and "Do not use for generic, personal, client, open-source" in texts["app_factory"]
-        and "default skill for all H5" not in texts["app_factory"],
+        and "Run this skill only when the description's company scope is present"
+        in texts["app_factory"]
+        and "If the request is an unrelated H5, use the generic UI/product workflow"
+        in texts["app_factory"],
         "app-factory still behaves as a global H5 default",
     )
     require(
@@ -123,7 +132,8 @@ def main() -> int:
     require(
         "prd_questions_are_batched",
         "Ask one question at a time" not in texts["pm_prd"]
-        and "one compact batch" in texts["pm_prd"],
+        and "Ask no more than three concise questions, only after source inspection"
+        in texts["pm_prd"],
         "pm-prd still creates one-question turns",
     )
     require(
@@ -216,15 +226,16 @@ def main() -> int:
         "h5_requires_blind_live_evidence",
         "375px" in texts["app_factory"]
         and "findings report is frozen" in texts["app_factory"]
-        and "cannot pass a readiness audit from source text and screenshots alone"
+        and "Static evidence can prove" in texts["project_h5_audit"]
+        and "It cannot prove a runnable product works"
         in texts["project_h5_audit"],
         "H5 workflow can still pass without a blind live walkthrough",
     )
     require(
-        "prd_red_team_is_conditional",
-        "Red-Team Review" in texts["pm_prd"]
-        and "Do not apply this gate to routine, reversible changes" in texts["pm_prd"],
-        "pm-prd lacks a conditional red-team gate or can over-trigger on routine work",
+        "prd_avoids_universal_red_team_gate",
+        "Red-Team Review" not in texts["pm_prd"]
+        and "red-team" not in texts["pm_prd"].casefold(),
+        "pm-prd duplicates the global conditional red-team rule or can over-trigger on routine work",
     )
     require(
         "design_lanes_are_narrow",
@@ -442,6 +453,19 @@ def main() -> int:
         and "curated redacted projection" in read(weekly_sync)
         and "Never recursively overwrite" in read(weekly_sync),
         "weekly export sync can still stage unsafe files or overwrite curated projections",
+    )
+    automation_retention = EXPORT_ROOT / "tools" / "archive_old_automation_runs.py"
+    automation_files = [
+        CODEX_HOME / "automations" / automation_id / "automation.toml"
+        for automation_id in ("automation", "metabase", "weekly-evolution-sync")
+    ]
+    require(
+        "automation_run_retention_is_enabled",
+        automation_retention.exists()
+        and 'thread_source = \'automation\'' in read(automation_retention)
+        and '[str(executable), "archive", session_id]' in read(automation_retention)
+        and all(path.exists() and "archive_old_automation_runs.py" in read(path) for path in automation_files),
+        "standalone automation runs can accumulate indefinitely or retention can bypass the supported archive command",
     )
     route_eval = EXPORT_ROOT / "tools" / "run_skill_route_evals.py"
     require(
